@@ -1,0 +1,15 @@
+{
+  "name": "鍙岃鍒掓墦鍗″彴",
+  "short_name": "鎵撳崱鍙?,
+  "description": "鍑忛噸20鏂?+ OET璇嶆眹 + 鏀掗挶 路 姣忔棩鎵撳崱",
+  "start_url": "./daily-checkin.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#ff7a45",
+  "background_color": "#ffffff",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
+
