@@ -1,7 +1,7 @@
 {
-  "name": "鍙岃鍒掓墦鍗″彴",
-  "short_name": "鎵撳崱鍙?,
-  "description": "鍑忛噸20鏂?+ OET璇嶆眹 + 鏀掗挶 路 姣忔棩鎵撳崱",
+  "name": "双计划打卡台",
+  "short_name": "打卡台",
+  "description": "减重20斤 + OET词汇 + 攒钱 · 每日打卡",
   "start_url": "./daily-checkin.html",
   "scope": "./",
   "display": "standalone",
@@ -12,4 +12,3 @@
     { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
   ]
 }
-

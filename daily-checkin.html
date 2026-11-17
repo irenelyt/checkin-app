@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>鍙岃鍒掓墦鍗″彴 路 鍑忛噸20鏂?+ OET璇嶆眹</title>
+<title>双计划打卡台 · 减重20斤 + OET词汇</title>
 <meta name="theme-color" content="#ff7a45">
 <link rel="manifest" href="manifest.json">
+
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <style>
 :root{--p:#ff7a45;--p2:#2f9e8f;--bg:#f6f7f9;--card:#fff;--txt:#26313d;--sub:#8a97a5;--line:#e8ecf0;--ok:#22b07d;}
@@ -69,22 +70,22 @@ canvas{width:100%;}
 </head>
 <body>
 <header>
-  <h1>馃幆 鍙岃鍒掓墦鍗″彴 <span class="countdown" id="cd"></span> <button id="wToggle" title="闅愯棌/鏄剧ず浣撻噸锛堥殣绉侊級" style="border:none;background:rgba(255,255,255,.25);color:#fff;border-radius:20px;padding:3px 10px;font-size:12px;cursor:pointer;">馃憗</button></h1>
-  <div style="font-size:11px;opacity:.9;margin-top:4px;">鍑忛噸 <span id="wHead" class="wpriv">154 鈫?134 鏂?/span> 锝?OET 璇嶆眹 2500 涓?锝?鑷?3鏈?鏃?/div>
+  <h1>🎯 双计划打卡台 <span class="countdown" id="cd"></span> <button id="wToggle" title="隐藏/显示体重（隐私）" style="border:none;background:rgba(255,255,255,.25);color:#fff;border-radius:20px;padding:3px 10px;font-size:12px;cursor:pointer;">👁</button></h1>
+  <div style="font-size:11px;opacity:.9;margin-top:4px;">减重 <span id="wHead" class="wpriv">154 → 134 斤</span> ｜ OET 词汇 2500 个 ｜ 至 3月1日</div>
 </header>
 
 <div class="tabs">
-  <div class="tab on" data-t="fit">馃弮 鍑忛噸鎵撳崱</div>
-  <div class="tab" data-t="word">馃摉 鍗曡瘝鎵撳崱</div>
-  <div class="tab" data-t="stat">馃搳 杩涘害缁熻</div>
-  <div class="tab" data-t="nz">馃嚦馃嚳 鏂拌タ鍏?/div>
-  <div class="tab" data-t="save">馃挵 鏀掗挶</div>
+  <div class="tab on" data-t="fit">🏃 减重打卡</div>
+  <div class="tab" data-t="word">📖 单词打卡</div>
+  <div class="tab" data-t="stat">📊 进度统计</div>
+  <div class="tab" data-t="nz">🇳🇿 新西兰</div>
+  <div class="tab" data-t="save">💰 攒钱</div>
 </div>
 
 <div class="datebar" id="datebar">
-  <button id="prev">鈥?/button>
+  <button id="prev">‹</button>
   <div class="d"><span id="dstr"></span><small id="dextra"></small></div>
-  <button id="next">鈥?/button>
+  <button id="next">›</button>
 </div>
 
 <main id="main"></main>
@@ -721,16 +722,16 @@ var qrcode = function() {
       var y, x, r1, r2, p;
 
       var blocks = {
-        '鈻堚枅': '鈻?,
-        '鈻?': '鈻€',
-        ' 鈻?: '鈻?,
+        '██': '█',
+        '█ ': '▀',
+        ' █': '▄',
         '  ': ' '
       };
 
       var blocksLastLineNoMargin = {
-        '鈻堚枅': '鈻€',
-        '鈻?': '鈻€',
-        ' 鈻?: ' ',
+        '██': '▀',
+        '█ ': '▀',
+        ' █': ' ',
         '  ': ' '
       };
 
@@ -739,7 +740,7 @@ var qrcode = function() {
         r1 = Math.floor((y - min) / cellSize);
         r2 = Math.floor((y + 1 - min) / cellSize);
         for (x = 0; x < size; x += 1) {
-          p = '鈻?;
+          p = '█';
 
           if (min <= x && x < max && min <= y && y < max && _this.isDark(r1, Math.floor((x - min) / cellSize))) {
             p = ' ';
@@ -749,7 +750,7 @@ var qrcode = function() {
             p += ' ';
           }
           else {
-            p += '鈻?;
+            p += '█';
           }
 
           // Output 2 characters per pixel, to create full square. 1 character per pixels gives only half width of square.
@@ -760,7 +761,7 @@ var qrcode = function() {
       }
 
       if (size % 2 && margin > 0) {
-        return ascii.substring(0, ascii.length - size - 1) + Array(size+1).join('鈻€');
+        return ascii.substring(0, ascii.length - size - 1) + Array(size+1).join('▀');
       }
 
       return ascii.substring(0, ascii.length-1);
@@ -782,7 +783,7 @@ var qrcode = function() {
 
       var y, x, r, p;
 
-      var white = Array(cellSize+1).join('鈻堚枅');
+      var white = Array(cellSize+1).join('██');
       var black = Array(cellSize+1).join('  ');
 
       var ascii = '';
@@ -2391,22 +2392,23 @@ var qrcode = function() {
 
 </script>
 <script>
-/* ================== 閰嶇疆鍖?==================
-   鈽?绛変綘鎷垮埌寰俊閲岀殑闊抽閾炬帴鍚庯紝鎶婂畠濉埌涓嬮潰 AUDIO_URL 鐨勫紩鍙烽噷鍗冲彲锛堝彲鎵炬垜鏉ユ敼锛夆槄 */
-const AUDIO_URL = "http://yt.rdyc.cn/web/directory?ebook_id=10572"; // 鍗曡瘝涔﹂厤濂楅煶棰戯紙浜哄ぇ绀炬偊鍚紝闇€寰俊鎺堟潈鐧诲綍锛?const START = "2026-11-16", END = "2027-03-01";
+/* ================== 配置区 ==================
+   ★ 等你拿到微信里的音频链接后，把它填到下面 AUDIO_URL 的引号里即可（可找我来改）★ */
+const AUDIO_URL = "http://yt.rdyc.cn/web/directory?ebook_id=10572"; // 单词书配套音频（人大社悦听，需微信授权登录）
+const START = "2026-11-16", END = "2027-03-01";
 const TOTAL_WORDS = 2500, PER_DAY = 24, WORDS_PER_CH = 125;
-const CHAPTERS = ["娑堝寲绯荤粺","鍛煎惛绯荤粺","寰幆绯荤粺","绁炵粡绯荤粺","杩愬姩绯荤粺","鍏嶇柅绯荤粺","鍐呭垎娉岀郴缁?,"琛€娑茬郴缁?,"娉屽翱绯荤粺","濡囩","浜х","鑰抽蓟鍠?,"鐪肩","鐨偆","浼犳煋","鎵嬫湳","蹇冪悊","閬椾紶","鑽墿","闈炲尰瀛﹀崟璇?];
+const CHAPTERS = ["消化系统","呼吸系统","循环系统","神经系统","运动系统","免疫系统","内分泌系统","血液系统","泌尿系统","妇科","产科","耳鼻喉","眼科","皮肤","传染","手术","心理","遗传","药物","非医学单词"];
 const START_W = 154, TARGET_W = 134;
-/* 濮ㄥ鏈熺獥鍙ｏ紙鎸塂ay璁★紝濮ㄥ绾︽瘡鏈?0鍙凤紝鏈湀鎻愬墠锛夛細绐楀彛鍐呴鏈熶綋閲嶄細鍥犳按閽犳酱鐣欐定0.5~1.5鏂?*/
+/* 姨妈期窗口（按Day计，姨妈约每月20号，本月提前）：窗口内预期体重会因水钠潴留涨0.5~1.5斤 */
 const PERIODS = [[2,6],[34,38],[65,69],[95,99]]; // 11/17-21, 12/19-23, 1/19-23, 2/18-22
-/* 鐪熷疄鍑忛噸棰勬湡锛氬彴闃跺紡涓嬮檷锛屽惈3涓钩鍙版湡锛坉ay, 鏂わ級 */
+/* 真实减重预期：台阶式下降，含3个平台期（day, 斤） */
 const NODES = [[1,154],[14,150.6],[24,149.2],[32,148.8],[45,146.2],[56,144.2],[64,143.8],[78,140.4],[88,138.6],[96,136.6],[106,134]];
 function baseW(n){ if(n<=1)return 154;
   for(let i=1;i<NODES.length;i++){ if(n<=NODES[i][0]){ const d0=NODES[i-1][0],w0=NODES[i-1][1],d1=NODES[i][0],w1=NODES[i][1]; return w0+(w1-w0)*(n-d0)/(d1-d0); } }
   return 134; }
 function expectedW(n){ let w = baseW(n);
   for(const [s,e] of PERIODS){ if(n>=s&&n<=e) w += 1.3*Math.sin(Math.PI*(n-s)/(e-s)); }
-  w += 0.35*Math.sin(n*2.3) + 0.22*Math.sin(n*0.9+1.3); /*鏃ュ父姘村垎/杩愬姩鍚庤倢鑲夊偍姘村皬娉㈠姩*/
+  w += 0.35*Math.sin(n*2.3) + 0.22*Math.sin(n*0.9+1.3); /*日常水分/运动后肌肉储水小波动*/
   return w; }
 /* ============================================ */
 
@@ -2414,8 +2416,8 @@ const $ = s => document.querySelector(s);
 const pad = n => (n<10?"0":"")+n;
 const fmt = d => d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
 const parse = s => {const [y,m,dd]=s.split("-").map(Number);return new Date(y,m-1,dd);};
-const WEEKS = ["鍛ㄦ棩","鍛ㄤ竴","鍛ㄤ簩","鍛ㄤ笁","鍛ㄥ洓","鍛ㄤ簲","鍛ㄥ叚"];
-let weightHidden=load("ds_whidden",true); // 浣撻噸闅愮妯″紡锛堥粯璁ら殣钘忥級
+const WEEKS = ["周日","周一","周二","周三","周四","周五","周六"];
+let weightHidden=load("ds_whidden",true); // 体重隐私模式（默认隐藏）
 let cur = fmt(new Date());
 
 const days = (a,b)=>Math.round((parse(b)-parse(a))/864e5);
@@ -2426,7 +2428,7 @@ function remaining(){ const t=new Date(); t.setHours(0,0,0,0); return days(fmt(t
 
 // ---------- storage ----------
 function load(k,def){ try{const v=localStorage.getItem(k);return v?JSON.parse(v):def;}catch(e){return def;} }
-function save(k,v){ try{localStorage.setItem(k,JSON.stringify(v));}catch(e){alert("瀛樺偍绌洪棿宸叉弧锛岃鍒犻櫎閮ㄥ垎鏃х収鐗囨暟鎹?);} }
+function save(k,v){ try{localStorage.setItem(k,JSON.stringify(v));}catch(e){alert("存储空间已满，请删除部分旧照片数据");} }
 const ck = d => "ds_ck_"+d, wk = d => "ds_w_"+d, gtk = d => "ds_g_"+d;
 
 // ---------- streak ----------
@@ -2453,12 +2455,12 @@ function shift(s,n){const d=parse(s);d.setDate(d.getDate()+n);return fmt(d);}
 
 function render(){
   const dt=parse(cur);
-  $("#dstr").textContent = (dt.getMonth()+1)+"鏈?+dt.getDate()+"鏃?;
+  $("#dstr").textContent = (dt.getMonth()+1)+"月"+dt.getDate()+"日";
   const n=dayN(cur);
-  $("#dextra").textContent = n ? ("Day "+n+" / "+totalDays) : ("璁″垝鍛ㄦ湡澶?路 "+WEEKS[dt.getDay()]);
-  $("#cd").textContent = "璺?鏈?鏃ヨ繕鍓?"+Math.max(0,remaining())+" 澶?;
-  const wHead=$("#wHead"); if(wHead) wHead.textContent = weightHidden?"路 路 路 鏂?:"154 鈫?134 鏂?;
-  const wT=$("#wToggle"); if(wT){ wT.textContent = weightHidden?"馃檲 鏄剧ず":"馃憗 闅愯棌"; wT.title = weightHidden?"鐐瑰嚮鏄剧ず浣撻噸":"鐐瑰嚮闅愯棌浣撻噸锛堥殣绉侊級"; }
+  $("#dextra").textContent = n ? ("Day "+n+" / "+totalDays) : ("计划周期外 · "+WEEKS[dt.getDay()]);
+  $("#cd").textContent = "距3月1日还剩 "+Math.max(0,remaining())+" 天";
+  const wHead=$("#wHead"); if(wHead) wHead.textContent = weightHidden?"· · · 斤":"154 → 134 斤";
+  const wT=$("#wToggle"); if(wT){ wT.textContent = weightHidden?"🙈 显示":"👁 隐藏"; wT.title = weightHidden?"点击显示体重":"点击隐藏体重（隐私）"; }
   $("#datebar").style.display = (tab==="stat"||tab==="nz"||tab==="save") ? "none" : "flex";
   const m=$("#main");
   if(tab==="fit") m.innerHTML=fitView();
@@ -2470,7 +2472,7 @@ function render(){
   bind();
 }
 
-// ================= 鍑忛噸鎵撳崱 =================
+// ================= 减重打卡 =================
 function fitView(){
   const n=dayN(cur), d=load(ck(cur),{band:null,meals:{b:{},l:{},d:{}},baddy:false});
   const st=streak(s=>{const c=load(ck(s),{});return c.band!=null||c.baddy;});
@@ -2481,140 +2483,141 @@ function fitView(){
   const inPct=Math.min(100,Math.round(kcalIn/1450*100));
   const mon=new Date(dt2); mon.setDate(dt2.getDate()-((dow+6)%7));
   let wkCount=0; for(let i=0;i<7;i++){const s=fmt(new Date(mon.getTime()+i*864e5)); if(load(ck(s),{}).baddy)wkCount++;}
-  // 馃敶 鏄ㄦ棩鏈畬鎴愭彁閱?  let missHtml="";
+  // 🔴 昨日未完成提醒
+  let missHtml="";
   const ys=shift(cur,-1);
   if(dayN(ys)){
     const yc=load(ck(ys),{band:null,meals:{},baddy:false});
     const items=[];
-    if(yc.band==null) items.push("鎵嬬幆鍗¤矾閲屾病濉?);
-    const missMeals=[["b","鏃╅"],["l","鍗堥"],["d","鏅氶"]].filter(([k])=>{const m=(yc.meals||{})[k]||{};return !(m.photo||m.kcal);}).map(([,n])=>n);
-    if(missMeals.length===3) items.push("楗鎷嶇収锛堟棭/鍗?鏅氬叏娌¤锛?);
-    else if(missMeals.length) items.push("楗鎷嶇収杩樺樊 "+missMeals.join("銆?));
-    if(items.length) missHtml+=`<div class="alert miss">馃敶 鏄ㄥぉ锛?{parse(ys).getMonth()+1}鏈?{parse(ys).getDate()}鏃ワ級鏈?${items.length} 椤规病瀹屾垚锛?b>${items.join("銆?)}</b><br><button class="btn ghost" data-jump="${ys}" style="margin-top:6px;">馃搮 鍘昏ˉ鎵撳崱</button></div>`;
-    else missHtml+=`<div class="alert info">鉁?鏄ㄥぉ鐨勫噺閲嶆墦鍗″叏閮ㄥ畬鎴愶紝缁х画淇濇寔锛?/div>`;
+    if(yc.band==null) items.push("手环卡路里没填");
+    const missMeals=[["b","早餐"],["l","午餐"],["d","晚餐"]].filter(([k])=>{const m=(yc.meals||{})[k]||{};return !(m.photo||m.kcal);}).map(([,n])=>n);
+    if(missMeals.length===3) items.push("饮食拍照（早/午/晚全没记）");
+    else if(missMeals.length) items.push("饮食拍照还差 "+missMeals.join("、"));
+    if(items.length) missHtml+=`<div class="alert miss">🔴 昨天（${parse(ys).getMonth()+1}月${parse(ys).getDate()}日）有 ${items.length} 项没完成：<b>${items.join("、")}</b><br><button class="btn ghost" data-jump="${ys}" style="margin-top:6px;">📅 去补打卡</button></div>`;
+    else missHtml+=`<div class="alert info">✅ 昨天的减重打卡全部完成，继续保持！</div>`;
   }
   if(dayN(cur)){
     const tc=load(ck(cur),{band:null,meals:{},baddy:false});
     const titems=[];
-    if(tc.band==null) titems.push("鎵嬬幆鍗¤矾閲?);
-    const tmissMeals=[["b","鏃╅"],["l","鍗堥"],["d","鏅氶"]].filter(([k])=>{const m=(tc.meals||{})[k]||{};return !(m.photo||m.kcal);}).map(([,n])=>n);
-    if(tmissMeals.length===3) titems.push("楗鎷嶇収锛堟棭/鍗?鏅氾級");
-    else if(tmissMeals.length) titems.push("楗鎷嶇収杩樺樊 "+tmissMeals.join("銆?));
-    if(titems.length) missHtml+=`<div class="alert warn">馃搶 浠婂ぉ杩樻病瀹屾垚锛?b>${titems.join("銆?)}</b>锛堢潯鍓嶈寰楄ˉ涓婏級</div>`;
+    if(tc.band==null) titems.push("手环卡路里");
+    const tmissMeals=[["b","早餐"],["l","午餐"],["d","晚餐"]].filter(([k])=>{const m=(tc.meals||{})[k]||{};return !(m.photo||m.kcal);}).map(([,n])=>n);
+    if(tmissMeals.length===3) titems.push("饮食拍照（早/午/晚）");
+    else if(tmissMeals.length) titems.push("饮食拍照还差 "+tmissMeals.join("、"));
+    if(titems.length) missHtml+=`<div class="alert warn">📌 今天还没完成：<b>${titems.join("、")}</b>（睡前记得补上）</div>`;
   }
   let h=missHtml+`<div class="card" style="background:linear-gradient(135deg,#fff7f0,#fff);border:1px solid #ffe1cd;">
-    <h3>馃幆 浠婃棩鐩爣 <span class="badge">${WEEKS[dow]}${isPlayDay?" 路 馃徃鎵撶悆鏃?:" 路 馃毝浼戞伅鏃?}</span></h3>
-    <div class="checkrow" style="font-size:13px;">馃崥 <b>鎽勫叆 鈮?1450 澶у崱</b><span style="margin-left:auto;color:${kcalIn>1550?"#d9480f":"var(--p2)"};font-weight:700;">宸茶 ${kcalIn} 澶у崱</span></div>
+    <h3>🎯 今日目标 <span class="badge">${WEEKS[dow]}${isPlayDay?" · 🏸打球日":" · 🚶休息日"}</span></h3>
+    <div class="checkrow" style="font-size:13px;">🍚 <b>摄入 ≤ 1450 大卡</b><span style="margin-left:auto;color:${kcalIn>1550?"#d9480f":"var(--p2)"};font-weight:700;">已记 ${kcalIn} 大卡</span></div>
     <div style="height:8px;background:#f1f3f5;border-radius:5px;overflow:hidden;margin:4px 0 10px;"><div style="height:100%;width:${inPct}%;background:${kcalIn>1550?"#ff7a45":"#22b07d"};"></div></div>
-    <div class="checkrow" style="font-size:13px;">馃敟 <b>杩愬姩娑堣€?鈮?${bandTarget} 澶у崱</b>${isPlayDay?"锛堟墦鐞?灏忔椂鈮?00锛?:"锛堜紤鎭棩锛氬揩璧?000姝ワ級"}</div>
-    <div class="checkrow" style="font-size:13px;">馃徃 鏈懆缇芥瘺鐞?<b>${wkCount} / 4</b> 娆★紙寤鸿鍛ㄤ簩銆佸洓銆佸叚 + 鏈哄姩1娆★紝<b>涓嶇敤澶╁ぉ鎵?/b>锛?/div>
-    ${kcalIn>1450?`<div style="font-size:12px;color:#d9480f;font-weight:700;margin-top:6px;">鈿狅笍 浠婃棩宸叉憚鍏?${kcalIn} 澶у崱锛岃秴杩?1450 涓婇檺锛佷笅涓€椤挎竻娣＄偣锛岄キ鍚庢暎姝ユ秷鑰楁帀锝?/div>`:""}
-    <div class="hint">姣忓ぉ灏辫杩欎笁绗旇处锛?b>鍚?鈮?450</b> 锝?<b>鍔?鈮?00</b> 锝?<b>姣忓懆鎵撶悆3~4娆?/b>銆備笁椁愰檺棰濊涓嬮潰鎷嶇収鎵撳崱鐨勬瘡鏍兼彁绀恒€?/div>
+    <div class="checkrow" style="font-size:13px;">🔥 <b>运动消耗 ≥ ${bandTarget} 大卡</b>${isPlayDay?"（打球1小时≈300）":"（休息日：快走6000步）"}</div>
+    <div class="checkrow" style="font-size:13px;">🏸 本周羽毛球 <b>${wkCount} / 4</b> 次（建议周二、四、六 + 机动1次，<b>不用天天打</b>）</div>
+    ${kcalIn>1450?`<div style="font-size:12px;color:#d9480f;font-weight:700;margin-top:6px;">⚠️ 今日已摄入 ${kcalIn} 大卡，超过 1450 上限！下一顿清淡点，饭后散步消耗掉～</div>`:""}
+    <div class="hint">每天就记这三笔账：<b>吃 ≤1450</b> ｜ <b>动 ≥200</b> ｜ <b>每周打球3~4次</b>。三餐限额见下面拍照打卡的每格提示。</div>
   </div>`;
-  h+=`<div class="card"><h3>鈱?杩愬姩鎵嬬幆鍗¤矾閲?<span class="badge ${d.band!=null?"done":""}">${d.band!=null?"宸叉墦鍗?:"鏈墦鍗?}</span></h3>
-    <input type="number" id="band" placeholder="杈撳叆鎵嬬幆浠婃棩杩愬姩娑堣€楋紙澶у崱锛夛紝鐩爣鈮?{bandTarget}" value="${d.band??""}">
-    <div class="hint">濉墜鐜笂鐨?杩愬姩/娲诲姩娑堣€?锛氭墦鐞冩棩鐩爣鈮?00锛屼紤鎭棩鈮?00锛堝揩璧?000姝モ増150-200锛夈€?/div></div>`;
+  h+=`<div class="card"><h3>⌚ 运动手环卡路里 <span class="badge ${d.band!=null?"done":""}">${d.band!=null?"已打卡":"未打卡"}</span></h3>
+    <input type="number" id="band" placeholder="输入手环今日运动消耗（大卡），目标≥${bandTarget}" value="${d.band??""}">
+    <div class="hint">填手环上的"运动/活动消耗"：打球日目标≥300，休息日≥200（快走6000步≈150-200）。</div></div>`;
   const mealDone=["b","l","d"].filter(k=>{const m=(d.meals||{})[k]||{};return m.photo||m.kcal;}).length;
-  h+=`<div class="card"><h3>馃摳 楗鎷嶇収鎵撳崱 <span class="badge ${mealDone===3?"done":""}">${mealDone}/3 椁?/span></h3><div class="meals">`;
+  h+=`<div class="card"><h3>📸 饮食拍照打卡 <span class="badge ${mealDone===3?"done":""}">${mealDone}/3 餐</span></h3><div class="meals">`;
   const LIM={b:160,l:550,d:600};
-  [["b","馃寘 鏃╅路濂?,"鈮?60"],["l","鈽€锔?鍗堥路椋熷爞","鈮?50"],["d","馃寵 鏅氶路鑷叜","鈮?00"]].forEach(([k,t,tp])=>{
+  [["b","🌅 早餐·奶","≤160"],["l","☀️ 午餐·食堂","≤550"],["d","🌙 晚餐·自煮","≤600"]].forEach(([k,t,tp])=>{
     const m=d.meals[k]||{};
     const over=m.kcal&&m.kcal>LIM[k];
     h+=`<div class="meal" style="${over?"border-color:#d9480f;background:#fff5f2;":""}"><div class="t">${t}</div>
-      ${over?`<div style="color:#d9480f;font-size:10px;font-weight:700;">鈿狅笍 瓒呴噺浜嗭紒</div>`:""}
-      <div class="ph" data-m="${k}">${m.photo?`<img src="${m.photo}">`:"馃摲"}</div>
+      ${over?`<div style="color:#d9480f;font-size:10px;font-weight:700;">⚠️ 超量了！</div>`:""}
+      <div class="ph" data-m="${k}">${m.photo?`<img src="${m.photo}">`:"📷"}</div>
       <input type="file" accept="image/*" capture="environment" id="file_${k}" hidden>
-      <input type="number" placeholder="澶у崱路${tp}" value="${m.kcal??""}" data-kcal="${k}" style="${over?"border-color:#d9480f;":""}"></div>`;
+      <input type="number" placeholder="大卡·${tp}" value="${m.kcal??""}" data-kcal="${k}" style="${over?"border-color:#d9480f;":""}"></div>`;
   });
-  h+=`</div><div class="hint">涓夐闄愰锛堟寜浣犵殑涔犳儻瀹氬埗锛夛細<b>鏃?/b>鑴辫剛濂?50ml鈮?0~160锝?b>鍗?/b>椋熷爞锛氶キ鍑忓崐+钂哥叜鐐栵紝涓€鑽や竴绱犫墹550锝滃崍鍚庤泲鐧界矇20g鈮?0锛堢畻杩涘崍椁愶級锝?b>鏅?/b>姘寸叜鑿?00g+鐗涜倝150g+铔?涓墹600銆傛媿鐓у悗鍙敤銆岃杽鑽峰仴搴枫€岮PP璇嗗埆鍗¤矾閲屻€?/div></div>`;
-  h+=`<div class="card"><h3>馃徃 缇芥瘺鐞?/ 杩愬姩 <span class="badge ${d.baddy?"done":""}">${d.baddy?"宸叉墦鍗?:"鏈墦鍗?}</span></h3>
-    <label class="checkrow"><input type="checkbox" id="baddy" ${d.baddy?"checked":""}> 浠婂ぉ鎵撶悆浜嗭紙1灏忔椂 鈮?300澶у崱锛?/label>
-    <div class="hint">鏈懆鑺傚锛氱洰鏍?~4娆°€備笉鎵撶悆鐨勬棩瀛愯寰楀揩璧?000姝ャ€?/div></div>`;
-  if(n===null) h+=`<div class="alert warn">浠婂ぉ涓嶅湪璁″垝鍛ㄦ湡鍐咃紙2026-11-16 ~ 2027-03-01锛夛紝浠嶅彲璁板綍鍝︺€?/div>`;
-  h+=`<div style="text-align:center;font-size:12px;color:var(--sub);margin:4px 0 12px;">馃敟 鍑忛噸鎵撳崱杩炲嚮 <span class="streak">${st}</span> 澶?/div>`;
+  h+=`</div><div class="hint">三餐限额（按你的习惯定制）：<b>早</b>脱脂奶250ml≈90~160｜<b>午</b>食堂：饭减半+蒸煮炖，一荤一素≤550｜午后蛋白粉20g≈80（算进午餐）｜<b>晚</b>水煮菜500g+牛肉150g+蛋2个≤600。拍照后可用「薄荷健康」APP识别卡路里。</div></div>`;
+  h+=`<div class="card"><h3>🏸 羽毛球 / 运动 <span class="badge ${d.baddy?"done":""}">${d.baddy?"已打卡":"未打卡"}</span></h3>
+    <label class="checkrow"><input type="checkbox" id="baddy" ${d.baddy?"checked":""}> 今天打球了（1小时 ≈ 300大卡）</label>
+    <div class="hint">本周节奏：目标3~4次。不打球的日子记得快走6000步。</div></div>`;
+  if(n===null) h+=`<div class="alert warn">今天不在计划周期内（2026-11-16 ~ 2027-03-01），仍可记录哦。</div>`;
+  h+=`<div style="text-align:center;font-size:12px;color:var(--sub);margin:4px 0 12px;">🔥 减重打卡连击 <span class="streak">${st}</span> 天</div>`;
   return h;
 }
 
-// ================= 鍗曡瘝鎵撳崱 =================
+// ================= 单词打卡 =================
 function wordView(){
   const n=dayN(cur), st=streak(s=>load(wk(s),false));
   let wmiss="";
   const ys2=shift(cur,-1);
   if(dayN(ys2)){
-    if(!load(wk(ys2),false)) wmiss+=`<div class="alert miss">馃敶 鏄ㄥぉ锛圖ay ${dayN(ys2)}锛夌殑鍗曡瘝杩樻病鎵撳崱锛佹紡涓€澶╋紝璁板繂閾惧氨鏂竴鐜綖<br><button class="btn ghost" data-jump="${ys2}" style="margin-top:6px;">馃搮 鍘昏ˉ鑳?/button></div>`;
-    else wmiss+=`<div class="alert info">鉁?鏄ㄥぉ鐨勫崟璇嶆墦鍗″畬鎴愶紝璧烇紒</div>`;
+    if(!load(wk(ys2),false)) wmiss+=`<div class="alert miss">🔴 昨天（Day ${dayN(ys2)}）的单词还没打卡！漏一天，记忆链就断一环～<br><button class="btn ghost" data-jump="${ys2}" style="margin-top:6px;">📅 去补背</button></div>`;
+    else wmiss+=`<div class="alert info">✅ 昨天的单词打卡完成，赞！</div>`;
   }
-  if(dayN(cur)&&!load(wk(cur),false)) wmiss+=`<div class="alert warn">馃搶 浠婂ぉ鐨勫崟璇嶏紙Day ${dayN(cur)}锛?4涓級杩樻病鑳岋紝璁板緱浠婃櫄瀹屾垚锝?/div>`;
-  if(n===null) h+=`<div class="empty">姝ゆ棩鏈熶笉鍦ㄨ儗璇靛懆鏈熷唴锛圖ay 1 = 2026骞?1鏈?6鏃ワ級</div>`;
+  if(dayN(cur)&&!load(wk(cur),false)) wmiss+=`<div class="alert warn">📌 今天的单词（Day ${dayN(cur)}，24个）还没背，记得今晚完成～</div>`;
+  if(n===null) h+=`<div class="empty">此日期不在背诵周期内（Day 1 = 2026年11月16日）</div>`;
   return wmiss+h;
   const done=load(wk(cur),false);
   const w1=(n-1)*PER_DAY+1, w2=Math.min(n*PER_DAY,TOTAL_WORDS);
   const c1=Math.ceil(w1/WORDS_PER_CH), c2=Math.ceil(w2/WORDS_PER_CH);
-  const chap = c1===c2?`绗?{c1}绔?路 ${CHAPTERS[c1-1]}`:`绗?{c1}~${c2}绔狅紙${CHAPTERS[c1-1]} 鈫?${CHAPTERS[c2-1]}锛塦;
-  const prev = n>1?`澶嶄範 Day ${Math.max(1,n-3)} ~ Day ${n-1} 鐨勬棫璇嶏紙蹇繃涓€閬嶏級`:`浠婂ぉ鏄涓€澶╋紝鐩存帴寮€濮嬶紒`;
-  let h=`<div class="card wordcard"><h3>馃摉 OET 璇嶆眹 路 浠婃棩浠诲姟 <span class="badge ${done?"done":""}">${done?"宸插畬鎴?:"杩涜涓?}</span></h3>
+  const chap = c1===c2?`第${c1}章 · ${CHAPTERS[c1-1]}`:`第${c1}~${c2}章（${CHAPTERS[c1-1]} → ${CHAPTERS[c2-1]}）`;
+  const prev = n>1?`复习 Day ${Math.max(1,n-3)} ~ Day ${n-1} 的旧词（快过一遍）`:`今天是第一天，直接开始！`;
+  let h=`<div class="card wordcard"><h3>📖 OET 词汇 · 今日任务 <span class="badge ${done?"done":""}">${done?"已完成":"进行中"}</span></h3>
     <div class="dayn">Day ${n}</div>
     <div class="wordmeta">
-      馃摎 鏂拌瘝锛?b>${w1} ~ ${w2} 鍙?/b>锛堝叡 ${w2-w1+1} 涓級<br>
-      馃摉 杩涘害锛?b>${chap}</b><br>
-      馃攣 ${prev}<br>
-      鉁嶏笍 姣忚瘝涓夐亶锛氬惉闊抽杈ㄩ煶 鈫?璺熻 鈫?榛樺啓鎷煎啓
+      📚 新词：<b>${w1} ~ ${w2} 号</b>（共 ${w2-w1+1} 个）<br>
+      📖 进度：<b>${chap}</b><br>
+      🔁 ${prev}<br>
+      ✍️ 每词三遍：听音频辨音 → 跟读 → 默写拼写
     </div>
-    <a class="btn green" href="${AUDIO_URL}" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;">馃帶 鐐瑰嚮鍚厤濂楅煶棰戯紙鑻遍煶鎱㈤€?/ 缇庨煶蹇€燂級</a>
+    <a class="btn green" href="${AUDIO_URL}" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;">🎧 点击听配套音频（英音慢速 / 美音快速）</a>
     <div id="qrbox" style="display:flex;justify-content:center;margin-top:12px;"></div>
-    <div class="hint" style="text-align:center;">馃摫 寰俊鎵笂鏂逛簩缁寸爜锛屾墜鏈轰笂鐩存帴鍚?br>馃捇 鐢佃剳绔偣鎸夐挳棣栨闇€寰俊鎵爜鎺堟潈锛岀櫥褰曚竴娆″嵆鍙?/div>
-    <button class="btn ${done?"ghost":""}" id="worddone" style="margin-top:9px;">${done?"鉁?宸叉墦鍗★紙鐐瑰嚮鍙栨秷锛?:"鉁?浠婂ぉ鑳屽畬浜嗭紝鎵撳崱锛?}</button>
+    <div class="hint" style="text-align:center;">📱 微信扫上方二维码，手机上直接听<br>💻 电脑端点按钮首次需微信扫码授权，登录一次即可</div>
+    <button class="btn ${done?"ghost":""}" id="worddone" style="margin-top:9px;">${done?"✅ 已打卡（点击取消）":"✅ 今天背完了，打卡！"}</button>
   </div>`;
   const lgDone=load("ds_lgc_"+cur,false);
   const dt0=parse(cur); const mon2=new Date(dt0); mon2.setDate(dt0.getDate()-((dt0.getDay()+6)%7));
   let lgcCount=0; for(let i=0;i<7;i++){const s=fmt(new Date(mon2.getTime()+i*864e5)); if(load("ds_lgc_"+s,false))lgcCount++;}
-  h+=`<div class="card"><h3>馃帶 鏂版蹇佃嫳璇 <span class="badge ${lgDone?"done":""}">${lgDone?"宸插惉璇?:"鏈惉璇?}</span></h3>
-    <div class="checkrow" style="font-size:13px;">馃摶 鏈懆 <b>${lgcCount} / 4</b> 鑺傦紙鑳屽崟璇嶇殑鏃ュ瓙閰嶅鍚竴鑺傦紝姣忓懆3~4娆″嵆鍙級</div>
-    <button class="btn ${lgDone?"ghost":""}" id="lgcbtn" style="margin-top:9px;">${lgDone?"鉁?浠婂ぉ鍚繃浜嗭紙鐐瑰嚮鍙栨秷锛?:"鈻讹笍 浠婂ぉ鍚簡涓€鑺傝锛屾墦鍗★紒"}</button>
-    <div class="hint">鍚姏+杈ㄩ煶鍜岃儗鍗曡瘝鏄粷閰嶏細鍏堝惉璇剧（鑰虫湹锛屽啀鑳屽綋澶╄瘝锛屾晥鐜囩炕鍊嶃€?/div></div>
-  <div style="text-align:center;font-size:12px;color:var(--sub);margin:4px 0 12px;">馃敟 鑳屽崟璇嶈繛鍑?<span class="streak">${st}</span> 澶?/div>`;
+  h+=`<div class="card"><h3>🎧 新概念英语课 <span class="badge ${lgDone?"done":""}">${lgDone?"已听课":"未听课"}</span></h3>
+    <div class="checkrow" style="font-size:13px;">📻 本周 <b>${lgcCount} / 4</b> 节（背单词的日子配套听一节，每周3~4次即可）</div>
+    <button class="btn ${lgDone?"ghost":""}" id="lgcbtn" style="margin-top:9px;">${lgDone?"✅ 今天听过了（点击取消）":"▶️ 今天听了一节课，打卡！"}</button>
+    <div class="hint">听力+辨音和背单词是绝配：先听课磨耳朵，再背当天词，效率翻倍。</div></div>
+  <div style="text-align:center;font-size:12px;color:var(--sub);margin:4px 0 12px;">🔥 背单词连击 <span class="streak">${st}</span> 天</div>`;
   return h;
 }
 
-// ================= 鏂拌タ鍏拌鍒?=================
+// ================= 新西兰计划 =================
 function seedTodos(){
   if(localStorage.getItem("ds_todos")!==null) return;
   save("ds_todos",[
-    {id:101,cat:"馃搫 璇佷欢路绛捐瘉",text:"纭鎶ょ収鏈夋晥鏈燂紙鏈€濂借鐩栧埌2027骞?鏈堜箣鍚庯級",done:false},
-    {id:102,cat:"馃搫 璇佷欢路绛捐瘉",text:"鍔炵悊鏂拌タ鍏版梾娓哥 Visitor Visa锛堟彁鍓?~2涓湀锛屾煡鏈€鏂版斂绛栵級",done:false},
-    {id:103,cat:"馃悑 瑙傞哺路琛岀▼",text:"棰勮鍑簱鎷夎椴歌埞绁紙Whale Watch Kaikoura锛屾彁鍓嶈鏃╅笩浠凤級",done:false},
-    {id:104,cat:"馃悑 瑙傞哺路琛岀▼",text:"鍒楄绋嬫竻鍗曪細鍩庡競璺嚎銆佷綇瀹裤€佽椴告棩鍓嶅悗鐣欑紦鍐插ぉ",done:false},
-    {id:105,cat:"馃殫 瀛﹁溅路椹剧収",text:"瀹氬杞︽柟妗堬細鍑哄彂鍓嶅湪鍥藉唴鑰冮┚鐓э紙鍛ㄦ湡3~6涓湀锛屾姄绱ф姤鍚嶏級",done:false},
-    {id:106,cat:"馃殫 瀛﹁溅路椹剧収",text:"鑻ヨ嚜椹撅細鍔炰腑鍥介┚鐓ц嫳鏂囩炕璇戜欢锛圢ZTA璁よ瘉锛夛紝鏂拌タ鍏板彸鑸靛乏琛?,done:false},
-    {id:107,cat:"馃С 瑁呭路璐墿",text:"3鏈堟槸鍒濈10~20掳C锛氬闃查澶栧銆佽垝閫傛琛岄瀷",done:false},
-    {id:108,cat:"馃崪 缇庨",text:"鏀惰棌缇庨娓呭崟锛氶潚鍙ｈ礉銆侀箍鑲夈€丠okey Pokey鍐版穱娣嬨€丗lat White鍜栧暋",done:false}
+    {id:101,cat:"📄 证件·签证",text:"确认护照有效期（最好覆盖到2027年9月之后）",done:false},
+    {id:102,cat:"📄 证件·签证",text:"办理新西兰旅游签 Visitor Visa（提前1~2个月，查最新政策）",done:false},
+    {id:103,cat:"🐋 观鲸·行程",text:"预订凯库拉观鲸船票（Whale Watch Kaikoura，提前订早鸟价）",done:false},
+    {id:104,cat:"🐋 观鲸·行程",text:"列行程清单：城市路线、住宿、观鲸日前后留缓冲天",done:false},
+    {id:105,cat:"🚗 学车·驾照",text:"定学车方案：出发前在国内考驾照（周期3~6个月，抓紧报名）",done:false},
+    {id:106,cat:"🚗 学车·驾照",text:"若自驾：办中国驾照英文翻译件（NZTA认证），新西兰右舵左行",done:false},
+    {id:107,cat:"🧳 装备·购物",text:"3月是初秋10~20°C：备防风外套、舒适步行鞋",done:false},
+    {id:108,cat:"🍜 美食",text:"收藏美食清单：青口贝、鹿肉、Hokey Pokey冰淇淋、Flat White咖啡",done:false}
   ]);
 }
 function nzView(){
   seedTodos();
   const todos=load("ds_todos",[]);
-  const cats=["馃悑 瑙傞哺路琛岀▼","馃殫 瀛﹁溅路椹剧収","馃崪 缇庨","馃С 瑁呭路璐墿","馃搫 璇佷欢路绛捐瘉","猸?鍏朵粬"];
+  const cats=["🐋 观鲸·行程","🚗 学车·驾照","🍜 美食","🧳 装备·购物","📄 证件·签证","⭐ 其他"];
   const groups={}; cats.forEach(c=>groups[c]=[]);
   todos.forEach(t=>{ (groups[t.cat]=groups[t.cat]||[]).push(t); });
   const doneN=todos.filter(t=>t.done).length;
   let h=`<div class="card" style="background:linear-gradient(135deg,#eef6ff,#fff);border:1px solid #d5e6f7;">
-    <h3>馃嚦馃嚳 鏂拌タ鍏颁箣琛?路 2027骞?鏈?<span class="badge">鍑忛噸缁撴潫姝ｅソ鍑哄彂 鉁堬笍</span></h3>
+    <h3>🇳🇿 新西兰之行 · 2027年3月 <span class="badge">减重结束正好出发 ✈️</span></h3>
     <div style="font-size:13px;line-height:2;">
-      馃悑 <b>瑙傞哺</b>锛氬嚡搴撴媺锛圞aikoura锛夊叏骞村彲瑙佹姽棣欓哺锛?鏈堝垵绉嬫捣鍐电ǔ瀹氾紱鑸圭▼绾?灏忔椂锛屾彁鍓嶈绁?澶囨檿鑸硅嵂<br>
-      馃殫 <b>瀛﹁溅</b>锛氭兂鑰冮┚鐓у缓璁嚭鍙戝墠鍦ㄥ浗鍐呮姤锛堝懆鏈?~6涓湀锛夛紱褰撳湴鑷┚鐢ㄤ腑鍥介┚鐓?NZTA璁よ瘉鑻辨枃缈昏瘧浠跺嵆鍙紙鍙宠埖宸﹁锛岄潬宸﹁椹讹級<br>
-      馃搫 <b>璇佷欢</b>锛氭梾娓哥 Visitor Visa 鎻愬墠1~2涓湀鍔烇紝鍑哄彂鍓嶅啀鏍稿鏈€鏂版斂绛?br>
-      馃Д <b>姘斿€?/b>锛?鏈?鍗楀崐鐞冨垵绉嬶紝10~20掳C锛屾棭鏅氬噳銆佺传澶栫嚎寮猴紝闃查澶栧+闃叉檼閮借
+      🐋 <b>观鲸</b>：凯库拉（Kaikoura）全年可见抹香鲸，3月初秋海况稳定；船程约3小时，提前订票+备晕船药<br>
+      🚗 <b>学车</b>：想考驾照建议出发前在国内报（周期3~6个月）；当地自驾用中国驾照+NZTA认证英文翻译件即可（右舵左行，靠左行驶）<br>
+      📄 <b>证件</b>：旅游签 Visitor Visa 提前1~2个月办，出发前再核对最新政策<br>
+      🧥 <b>气候</b>：3月=南半球初秋，10~20°C，早晚凉、紫外线强，防风外套+防晒都要
     </div></div>`;
-  h+=`<div class="card"><h3>鉁?娣诲姞寰呭姙 <span class="badge">${todos.length-doneN} 寰呭姙 / ${doneN} 宸插畬鎴?/span></h3>
-    <input type="text" id="todoText" placeholder="鎯冲姙浠€涔堜簨锛熷啓鍦ㄨ繖閲岋紙濡傦細璁㈡満绁級" style="margin-bottom:8px;">
+  h+=`<div class="card"><h3>✅ 添加待办 <span class="badge">${todos.length-doneN} 待办 / ${doneN} 已完成</span></h3>
+    <input type="text" id="todoText" placeholder="想办什么事？写在这里（如：订机票）" style="margin-bottom:8px;">
     <div style="display:flex;gap:8px;">
       <select id="todoCat" style="flex:1;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:14px;background:#fff;">
-        ${cats.map(c=>`<option>${c}</option>`).join("")}<option value="__custom">鉁忥笍 鏂板缓鍒嗙被鈥?/option>
+        ${cats.map(c=>`<option>${c}</option>`).join("")}<option value="__custom">✏️ 新建分类…</option>
       </select>
-      <input type="text" id="todoNewCat" placeholder="鍒嗙被鍚? style="flex:1;display:none;">
+      <input type="text" id="todoNewCat" placeholder="分类名" style="flex:1;display:none;">
     </div>
-    <button class="btn" id="todoAdd" style="margin-top:9px;">锛?娣诲姞鍒版竻鍗?/button>
-    <div class="hint">涓嬮潰鎸夊垎绫诲垎缁勬樉绀猴細鍕鹃€?瀹屾垚锛岀偣 鉁?鍒犻櫎銆傚凡棰勫～8鏉¤鍓嶅缓璁紝鍙殢鎰忔敼銆?/div></div>`;
+    <button class="btn" id="todoAdd" style="margin-top:9px;">＋ 添加到清单</button>
+    <div class="hint">下面按分类分组显示：勾选=完成，点 ✕ 删除。已预填8条行前建议，可随意改。</div></div>`;
   const allCats=[...cats.filter(c=>groups[c]&&groups[c].length), ...Object.keys(groups).filter(c=>!cats.includes(c)&&groups[c].length)];
   allCats.forEach(c=>{
     h+=`<div class="card"><h3>${c} <span class="badge">${groups[c].filter(t=>t.done).length}/${groups[c].length}</span></h3>`;
@@ -2623,30 +2626,34 @@ function nzView(){
         <label style="display:flex;gap:9px;align-items:center;flex:1;cursor:pointer;">
           <input type="checkbox" data-td="${t.id}" ${t.done?"checked":""}>
           <span style="font-size:13px;${t.done?"text-decoration:line-through;color:var(--sub);":""}">${t.text}</span></label>
-        <button data-del="${t.id}" style="border:none;background:none;color:#c3ccd4;cursor:pointer;font-size:15px;flex-shrink:0;">鉁?/button></div>`;
+        <button data-del="${t.id}" style="border:none;background:none;color:#c3ccd4;cursor:pointer;font-size:15px;flex-shrink:0;">✕</button></div>`;
     });
     h+=`</div>`;
   });
-  if(!todos.length) h+=`<div class="empty">娓呭崟绌虹┖鐨勶紝鍔犵涓€鏉″緟鍔炲惂锝?/div>`;
+  if(!todos.length) h+=`<div class="empty">清单空空的，加第一条待办吧～</div>`;
   return h;
 }
 
-// ================= 鏀掗挶鎵撳崱 =================
+// ================= 攒钱打卡 =================
 const ym = () => fmt(new Date()).slice(0,7); // 2026-11
-let _saveMonth = ym(); // 鏀掗挶椤靛綋鍓嶉€変腑鏈堜唤
+let _saveMonth = ym(); // 攒钱页当前选中月份
 const saveMonth = () => _saveMonth;
-let _saveYear = new Date().getFullYear(); // 鏀掗挶椤靛勾浠借鍥?let editWishId=null, editTgt=false, editAmt=false, editRecIdx=null, resetArm=0, delArm=null, delArmTs=0, lastDel=null; // 鍐呰仈缂栬緫鐘舵€?const WISH_TPL=[["馃悑 瑙傞哺鑸圭エ",1800],["馃彣 浣忓",3000],["馃С 瑁呭璐墿",1000],["馃崪 缇庨鍩洪噾",800],["馃殫 褰撳湴浜ら€?,600],["馃巵 绾康鍝?,500]];
+let _saveYear = new Date().getFullYear(); // 攒钱页年份视图
+let editWishId=null, editTgt=false, editAmt=false, editRecIdx=null, resetArm=0, delArm=null, delArmTs=0, lastDel=null; // 内联编辑状态
+const WISH_TPL=[["🐋 观鲸船票",1800],["🏨 住宿",3000],["🧳 装备购物",1000],["🍜 美食基金",800],["🚗 当地交通",600],["🎁 纪念品",500]];
 const stamp = () => { const n=new Date(); return (n.getMonth()+1)+"/"+n.getDate()+" "+pad(n.getHours())+":"+pad(n.getMinutes()); };
 function prevYm(s){ const p=s.split("-").map(Number); const d=new Date(p[0],p[1]-2,1); return d.getFullYear()+"-"+pad(d.getMonth()+1); }
-function carryIn(y){ let carry=0, m=prevYm(y); // 涓婃湀鏀掕秴閮ㄥ垎閾惧紡婊氬叆
+function carryIn(y){ let carry=0, m=prevYm(y); // 上月攒超部分链式滚入
   for(let i=0;i<36;i++){ const a=load("ds_save_"+m,null); if(a==null) break;
     const t=load("ds_save_target_"+m,1500); const over=Math.max(0,a+carry-t);
     if(over<=0) break; carry=+over.toFixed(2); m=prevYm(m); }
   return carry; }
-function computePool(){ let total=0; // 鎵€鏈夋湀浠借褰曠殑閽辨€诲拰 = 蹇冩効姹?  for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i);
+function computePool(){ let total=0; // 所有月份记录的钱总和 = 心愿池
+  for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i);
     if(k&&/^ds_save_\d{4}-\d{2}$/.test(k)){ const v=parseFloat(localStorage.getItem(k)); if(v>0) total+=v; } }
   return +total.toFixed(2); }
-function computeAlloc(wishes, allocMap){ // 蹇冩効姹犺嚜鍔ㄥ垎閰嶏細鎸夋瘮渚嬶紙鎴栧钩鍧囷級锛屾弧棰濋『寤讹紝宸茶喘蹇冩効鐨勯挶瑙嗕负宸茶姳鎺?  const total=computePool();
+function computeAlloc(wishes, allocMap){ // 心愿池自动分配：按比例（或平均），满额顺延，已购心愿的钱视为已花掉
+  const total=computePool();
   const doneSpent=wishes.filter(w=>w.done).reduce((s,w)=>s+w.price,0);
   const pool=Math.max(0,+(total-doneSpent).toFixed(2));
   const undone=wishes.filter(w=>!w.done);
@@ -2678,91 +2685,91 @@ function saveView(){
   const allocSum=undone.reduce((s,w)=>s+(allocMap[w.id]||0),0);
   const CA=computeAlloc(wishes,allocMap);
   const totalPool=undone.reduce((s,w)=>s+(CA.result[w.id]||0),0);
-  const mstat = y===ym()?"馃數 杩涜涓?:(y<ym()?"鈿?宸茬粨鏉?:"鈿?鏈紑濮?);
+  const mstat = y===ym()?"🔵 进行中":(y<ym()?"⚪ 已结束":"⚪ 未开始");
   const gridMonths=[...Array(12)].map((_,i)=>_saveYear+"-"+pad(i+1));
   let h=`<div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:8px;">
-    <button id="yPrev" style="width:34px;height:34px;border:1px solid var(--line);background:#fff;border-radius:50%;cursor:pointer;font-size:15px;">鈥?/button>
-    <b style="font-size:16px;">${_saveYear}骞?/b>
-    <button id="yNext" style="width:34px;height:34px;border:1px solid var(--line);background:#fff;border-radius:50%;cursor:pointer;font-size:15px;">鈥?/button>
+    <button id="yPrev" style="width:34px;height:34px;border:1px solid var(--line);background:#fff;border-radius:50%;cursor:pointer;font-size:15px;">‹</button>
+    <b style="font-size:16px;">${_saveYear}年</b>
+    <button id="yNext" style="width:34px;height:34px;border:1px solid var(--line);background:#fff;border-radius:50%;cursor:pointer;font-size:15px;">›</button>
   </div>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px;">
     ${gridMonths.map(m=>{const mm=+m.split("-")[1]; const amt=load("ds_save_"+m,0);
-      return `<button data-sm="${m}" style="border:1px solid ${m===y?"var(--p)":"var(--line)"};background:${m===y?"#fff3ec":"#fff"};color:${m===y?"var(--p)":"var(--txt)"};border-radius:10px;padding:7px 2px;font-size:13px;cursor:pointer;font-weight:${m===y?"600":"400"};">${mm}鏈?{m===ym()?" 路now":""}${amt>0?`<div style="font-size:10px;color:var(--ok);">楼${amt}</div>`:""}</button>`;}).join("")}
+      return `<button data-sm="${m}" style="border:1px solid ${m===y?"var(--p)":"var(--line)"};background:${m===y?"#fff3ec":"#fff"};color:${m===y?"var(--p)":"var(--txt)"};border-radius:10px;padding:7px 2px;font-size:13px;cursor:pointer;font-weight:${m===y?"600":"400"};">${mm}月${m===ym()?" ·now":""}${amt>0?`<div style="font-size:10px;color:var(--ok);">¥${amt}</div>`:""}</button>`;}).join("")}
   </div>
   <div class="card" style="background:linear-gradient(135deg,#fffbe8,#fff);border:1px solid #f5e6a8;">
-    <h3>馃挵 ${y.split("-")[0]}骞?{y.split("-")[1].replace(/^0/,"")}鏈堟敀閽?<span class="badge">${mstat}</span> <span class="badge">鐩爣 <span id="tgtShow">楼${tgt}</span> <button id="tgtEdit" style="border:none;background:none;color:var(--p2);cursor:pointer;font-size:11px;">鏀?/button></span>    </h3>
+    <h3>💰 ${y.split("-")[0]}年${y.split("-")[1].replace(/^0/,"")}月攒钱 <span class="badge">${mstat}</span> <span class="badge">目标 <span id="tgtShow">¥${tgt}</span> <button id="tgtEdit" style="border:none;background:none;color:var(--p2);cursor:pointer;font-size:11px;">改</button></span>    </h3>
     ${editTgt?`<div style="display:flex;gap:6px;margin:6px 0;">
-      <input type="number" id="tgVal" value="${tgt}" style="flex:1;" placeholder="鏈湀鐩爣锛堝厓锛?>
-      <button class="btn" id="tgSave" style="width:auto;padding:6px 12px;font-size:12px;">淇濆瓨</button>
-      <button class="btn ghost" id="tgCancel" style="width:auto;padding:6px 10px;font-size:12px;">鍙栨秷</button></div>`:""}
-    <div class="checkrow" style="font-size:13px;">馃彟 鏈湀宸叉敀 <b style="color:var(--p);">楼${curAmt}</b>${carry>0?`<span style="color:var(--sub);font-size:12px;">锛堝惈涓婃湀缁撲綑 楼${carry}锛?/span>`:""}<span style="margin-left:auto;color:var(--sub);">${eff>=tgt?"鉁?杈炬爣锛?:"杩樺樊 楼"+Math.max(0,(tgt-eff)).toFixed(0)+" 杈炬爣"} <button id="amtEdit" style="border:none;background:none;color:var(--p2);cursor:pointer;font-size:11px;">鏀?/button></span></div>
+      <input type="number" id="tgVal" value="${tgt}" style="flex:1;" placeholder="本月目标（元）">
+      <button class="btn" id="tgSave" style="width:auto;padding:6px 12px;font-size:12px;">保存</button>
+      <button class="btn ghost" id="tgCancel" style="width:auto;padding:6px 10px;font-size:12px;">取消</button></div>`:""}
+    <div class="checkrow" style="font-size:13px;">🏦 本月已攒 <b style="color:var(--p);">¥${curAmt}</b>${carry>0?`<span style="color:var(--sub);font-size:12px;">（含上月结余 ¥${carry}）</span>`:""}<span style="margin-left:auto;color:var(--sub);">${eff>=tgt?"✅ 达标！":"还差 ¥"+Math.max(0,(tgt-eff)).toFixed(0)+" 达标"} <button id="amtEdit" style="border:none;background:none;color:var(--p2);cursor:pointer;font-size:11px;">改</button></span></div>
     ${editAmt?`<div style="display:flex;gap:6px;margin:6px 0;">
-      <input type="number" id="amtVal" value="${curAmt}" style="flex:1;" placeholder="鏈湀绱宸叉敀锛堝厓锛?>
-      <button class="btn" id="amtSave" style="width:auto;padding:6px 12px;font-size:12px;">淇濆瓨</button>
-      <button class="btn ghost" id="amtCancel" style="width:auto;padding:6px 10px;font-size:12px;">鍙栨秷</button></div>
-    <div class="hint" style="margin-top:0;">鐩存帴鏀规湰鏈堟€婚锛堣緭閿欎簡灏辩敤杩欓噷鏀癸級銆傚悇蹇冩効鐨勫凡鏀掑彲鐢ㄥ崱涓?鉁忥笍 鍗曠嫭淇銆?/div>`:""}
+      <input type="number" id="amtVal" value="${curAmt}" style="flex:1;" placeholder="本月累计已攒（元）">
+      <button class="btn" id="amtSave" style="width:auto;padding:6px 12px;font-size:12px;">保存</button>
+      <button class="btn ghost" id="amtCancel" style="width:auto;padding:6px 10px;font-size:12px;">取消</button></div>
+    <div class="hint" style="margin-top:0;">直接改本月总额（输错了就用这里改）。各心愿的已攒可用卡上 ✏️ 单独修正。</div>`:""}
     <div style="height:10px;background:#f1f3f5;border-radius:6px;overflow:hidden;margin:4px 0 10px;"><div style="height:100%;width:${pct}%;background:${eff>=tgt?"linear-gradient(90deg,#f0b429,#f5cd47)":"#22b07d"};"></div></div>
     <div style="display:flex;gap:8px;">
-      <input type="number" id="saveAmt" placeholder="鏈鏀掍簡澶氬皯锛堝厓锛? style="flex:1;">
-      <button class="btn" id="saveRec" style="width:auto;padding:9px 16px;">璁颁竴绗?/button>
+      <input type="number" id="saveAmt" placeholder="本次攒了多少（元）" style="flex:1;">
+      <button class="btn" id="saveRec" style="width:auto;padding:9px 16px;">记一笔</button>
     </div>
-    ${recs.length?`<div style="font-size:12px;margin-top:8px;color:var(--txt);"><b>馃摑 鏈湀璁板綍</b>${lastDel&&lastDel.y===y?` <button id="undoDel" style="border:1px solid var(--ok);background:#e3f7ee;color:var(--ok);cursor:pointer;font-size:11px;border-radius:8px;padding:3px 8px;">鈫╋笍 鎾ら攢鍒犻櫎锛埪?{lastDel.e.delta}锛?/button>`:""}</div>
+    ${recs.length?`<div style="font-size:12px;margin-top:8px;color:var(--txt);"><b>📝 本月记录</b>${lastDel&&lastDel.y===y?` <button id="undoDel" style="border:1px solid var(--ok);background:#e3f7ee;color:var(--ok);cursor:pointer;font-size:11px;border-radius:8px;padding:3px 8px;">↩️ 撤销删除（¥${lastDel.e.delta}）</button>`:""}</div>
     ${recs.map((e,i)=>`<div class="checkrow" style="font-size:12px;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 2px;">
-      <span>馃晵 ${e.d||"鏇存棭"} 锝?<b style="color:var(--p);">楼${e.delta}</b></span>
-      <span><button data-recedit="${i}" style="border:none;background:none;cursor:pointer;font-size:13px;">鉁忥笍</button> <button data-recdel="${i}" style="border:none;background:none;color:#c3ccd4;cursor:pointer;font-size:14px;">鉁?/button></span></div>
+      <span>🕒 ${e.d||"更早"} ｜ <b style="color:var(--p);">¥${e.delta}</b></span>
+      <span><button data-recedit="${i}" style="border:none;background:none;cursor:pointer;font-size:13px;">✏️</button> <button data-recdel="${i}" style="border:none;background:none;color:#c3ccd4;cursor:pointer;font-size:14px;">✕</button></span></div>
       ${editRecIdx===i?`<div style="display:flex;gap:6px;padding:4px 2px;">
-        <input type="number" id="reVal" value="${e.delta}" style="flex:1;" placeholder="杩欑瑪鏀规垚澶氬皯锛?>
-        <button class="btn" id="reSave" style="width:auto;padding:5px 10px;font-size:12px;">淇濆瓨</button>
-        <button class="btn ghost" id="reCancel" style="width:auto;padding:5px 8px;font-size:12px;">鍙栨秷</button></div>`:""}`).join("")}`:""}
-    ${!recs.length&&lastDel&&lastDel.y===y?`<div style="margin:8px 0;"><button id="undoDel" style="border:1px solid var(--ok);background:#e3f7ee;color:var(--ok);cursor:pointer;font-size:11px;border-radius:8px;padding:4px 10px;">鈫╋笍 鎾ら攢鍒犻櫎锛埪?{lastDel.e.delta}锛?/button></div>`:""}
-    <div class="hint">姣忚涓€绗斿氨绱姞鍒版湰鏈堬紝瓒呭嚭鐩爣鐨勯儴鍒嗚嚜鍔ㄦ粴鍒颁笅涓湀銆傜偣 鉁忥笍 鏀归噾棰濄€佲湑 鍒犳暣绗斺€斺€斾笂闈㈢殑鎬婚銆佽繘搴︽潯鍜屼笅闈㈠績鎰跨殑閽遍兘浼?b>鑷姩鏇存柊</b>銆?/div>
-    <div style="font-size:12px;margin-top:10px;">馃帤锔?<b>鍒嗛厤姣斾緥</b> <span style="color:var(--sub);">锛堝ぇ棰濅富鏀伙細50/80/100%涓夐€変竴锛涘皬棰濇瑕侊細0~30%鑷敱杈撳叆锛?/span></div>
+        <input type="number" id="reVal" value="${e.delta}" style="flex:1;" placeholder="这笔改成多少？">
+        <button class="btn" id="reSave" style="width:auto;padding:5px 10px;font-size:12px;">保存</button>
+        <button class="btn ghost" id="reCancel" style="width:auto;padding:5px 8px;font-size:12px;">取消</button></div>`:""}`).join("")}`:""}
+    ${!recs.length&&lastDel&&lastDel.y===y?`<div style="margin:8px 0;"><button id="undoDel" style="border:1px solid var(--ok);background:#e3f7ee;color:var(--ok);cursor:pointer;font-size:11px;border-radius:8px;padding:4px 10px;">↩️ 撤销删除（¥${lastDel.e.delta}）</button></div>`:""}
+    <div class="hint">每记一笔就累加到本月，超出目标的部分自动滚到下个月。点 ✏️ 改金额、✕ 删整笔——上面的总额、进度条和下面心愿的钱都会<b>自动更新</b>。</div>
+    <div style="font-size:12px;margin-top:10px;">🎚️ <b>分配比例</b> <span style="color:var(--sub);">（大额主攻：50/80/100%三选一；小额次要：0~30%自由输入）</span></div>
     ${undone.map(w=>{ const v0=allocMap[w.id]||0; const role=roleMap[w.id]||(v0>=40?"big":"small");
       const ctrl = role==="big"
         ? `<select data-apct="${w.id}" style="width:84px;border:1px solid var(--line);border-radius:8px;padding:4px;font-size:12px;background:#fff;">
             ${[50,80,100].map(r=>`<option value="${r}" ${v0===r?"selected":""}>${r}%</option>`).join("")}
-            <option value="0" ${v0===0?"selected":""}>涓嶅垎閰?/option>
+            <option value="0" ${v0===0?"selected":""}>不分配</option>
           </select>`
         : `<input type="number" min="0" max="30" data-apct="${w.id}" value="${v0}" placeholder="0~30" style="width:70px;border:1px solid var(--line);border-radius:8px;padding:4px 6px;font-size:12px;text-align:center;">`;
-      return `<div class="checkrow" style="font-size:12px;gap:6px;"><span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">馃巵 ${w.name}${(w.saved||0)>=w.price?`<span style="color:#c2620a;">锛堝凡鏀掓弧路鏁板瓧鏈夎锛熺偣鍗′笂鉁忥笍锛?/span>`:""}</span>
+      return `<div class="checkrow" style="font-size:12px;gap:6px;"><span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">🎁 ${w.name}${(w.saved||0)>=w.price?`<span style="color:#c2620a;">（已攒满·数字有误？点卡上✏️）</span>`:""}</span>
         <select data-arole="${w.id}" style="width:62px;border:1px solid var(--line);border-radius:8px;padding:4px;font-size:12px;background:#fff;">
-          <option value="small" ${role==="small"?"selected":""}>灏忛</option>
-          <option value="big" ${role==="big"?"selected":""}>澶ч</option>
+          <option value="small" ${role==="small"?"selected":""}>小额</option>
+          <option value="big" ${role==="big"?"selected":""}>大额</option>
         </select>${ctrl}</div>`;}).join("")}
-    <div id="allocSum" style="font-size:11px;margin-top:5px;color:${allocSum===100?"var(--ok)":allocSum===0?"var(--sub)":"#c2620a"};">${allocSum===0?"褰撳墠锛氭湭璁剧疆姣斾緥锛屽皢骞冲潎鍒嗛厤":allocSum===100?"鍚堣 100% 鉁?:`鍚堣 ${allocSum}%锛岃涓€绗旀椂鎸夋瘮渚嬫姌绠梎}</div>
+    <div id="allocSum" style="font-size:11px;margin-top:5px;color:${allocSum===100?"var(--ok)":allocSum===0?"var(--sub)":"#c2620a"};">${allocSum===0?"当前：未设置比例，将平均分配":allocSum===100?"合计 100% ✅":`合计 ${allocSum}%，记一笔时按比例折算`}</div>
   </div>`;
-  h+=`<div class="card"><h3>馃巵 蹇冩効娓呭崟 <span class="badge">蹇冩効姹犲凡鍒?楼${totalPool.toFixed(0)}锝?{wishes.length-doneN(wishes)} 涓敀閽变腑</span> <button id="wishReset" style="border:1px solid var(--line);background:#fff;color:var(--sub);cursor:pointer;font-size:11px;border-radius:8px;padding:3px 8px;">馃Ч 鍏ㄩ儴娓呴浂閲嶅垎</button> <button id="wishTpl" style="border:1px solid var(--line);background:#fff;color:var(--p2);cursor:pointer;font-size:11px;border-radius:8px;padding:3px 8px;">馃搵 鎭㈠绀轰緥蹇冩効</button></h3>
+  h+=`<div class="card"><h3>🎁 心愿清单 <span class="badge">心愿池已分 ¥${totalPool.toFixed(0)}｜${wishes.length-doneN(wishes)} 个攒钱中</span> <button id="wishReset" style="border:1px solid var(--line);background:#fff;color:var(--sub);cursor:pointer;font-size:11px;border-radius:8px;padding:3px 8px;">🧹 全部清零重分</button> <button id="wishTpl" style="border:1px solid var(--line);background:#fff;color:var(--p2);cursor:pointer;font-size:11px;border-radius:8px;padding:3px 8px;">📋 恢复示例心愿</button></h3>
     <div style="display:flex;gap:8px;margin-bottom:8px;">
-      <input type="text" id="wishName" placeholder="蹇冩効鍚嶇О锛堝锛氳椴歌埞绁級" style="flex:1;">
-      <input type="number" id="wishPrice" placeholder="浠锋牸楼" style="width:90px;">
+      <input type="text" id="wishName" placeholder="心愿名称（如：观鲸船票）" style="flex:1;">
+      <input type="number" id="wishPrice" placeholder="价格¥" style="width:90px;">
     </div>
-    <button class="btn green" id="wishAdd">锛?娣诲姞蹇冩効</button>
-    <div class="hint">閽辨寜涓婇潰閫夌殑姣斾緥鍒嗙粰鍚勫績鎰匡紝鏀掑瑙ｉ攣銆屽彲璐拱銆嶃€傛暟瀛椾笉瀵癸紵鐐瑰績鎰垮崱涓婄殑 <b>鉁忥笍 鎵嬪姩淇</b>锛屾垨 馃Ч 鍏ㄩ儴娓呴浂閲嶆柊璁般€?/div></div>`;
-  if(!wishes.length) h+=`<div class="empty">杩樻病鏈夊績鎰匡紝鍔犱竴涓惂锝炴瘮濡傝椴歌埞绁?馃悑</div>`;
-  // 鏈敀澶熷湪鍓嶃€佸凡瀹屾垚鍦ㄥ悗
+    <button class="btn green" id="wishAdd">＋ 添加心愿</button>
+    <div class="hint">钱按上面选的比例分给各心愿，攒够解锁「可购买」。数字不对？点心愿卡上的 <b>✏️ 手动修正</b>，或 🧹 全部清零重新记。</div></div>`;
+  if(!wishes.length) h+=`<div class="empty">还没有心愿，加一个吧～比如观鲸船票 🐋</div>`;
+  // 未攒够在前、已完成在后
   [...undone, ...wishes.filter(w=>w.done)].forEach(w=>{
     const sv=w.done?w.price:+(CA.result[w.id]||0).toFixed(2);
     const p=Math.min(100,Math.round(sv/w.price*100));
     const full=sv>=w.price;
     h+=`<div class="card" style="${full?"background:#fffdf2;border:1px solid #f0d878;":""}">
-      <h3>${w.done?"馃帀":full?"馃泹锔?:"馃巵"} ${w.name} <span class="badge">${sv} / ${w.price} 鍏?/span>
-        <button data-wedit="${w.id}" title="淇敼鍚嶇О/浠锋牸" style="border:none;background:none;color:var(--p2);cursor:pointer;font-size:14px;">鉁忥笍</button>
-        <button data-wdel="${w.id}" style="border:none;background:none;color:#c3ccd4;cursor:pointer;font-size:15px;">鉁?/button></h3>
+      <h3>${w.done?"🎉":full?"🛍️":"🎁"} ${w.name} <span class="badge">${sv} / ${w.price} 元</span>
+        <button data-wedit="${w.id}" title="修改名称/价格" style="border:none;background:none;color:var(--p2);cursor:pointer;font-size:14px;">✏️</button>
+        <button data-wdel="${w.id}" style="border:none;background:none;color:#c3ccd4;cursor:pointer;font-size:15px;">✕</button></h3>
       ${editWishId===String(w.id)?`<div style="display:flex;gap:6px;margin:6px 0;">
-        <input type="text" id="ewName" value="${w.name}" style="flex:1;" placeholder="蹇冩効鍚嶇О">
-        <input type="number" id="ewPrice" value="${w.price}" style="width:90px;" placeholder="浠锋牸楼">
-        <button class="btn" id="ewSave" style="width:auto;padding:6px 12px;font-size:12px;">淇濆瓨</button>
-        <button class="btn ghost" id="ewCancel" style="width:auto;padding:6px 10px;font-size:12px;">鍙栨秷</button></div>`:""}
+        <input type="text" id="ewName" value="${w.name}" style="flex:1;" placeholder="心愿名称">
+        <input type="number" id="ewPrice" value="${w.price}" style="width:90px;" placeholder="价格¥">
+        <button class="btn" id="ewSave" style="width:auto;padding:6px 12px;font-size:12px;">保存</button>
+        <button class="btn ghost" id="ewCancel" style="width:auto;padding:6px 10px;font-size:12px;">取消</button></div>`:""}
       <div style="height:9px;background:#f1f3f5;border-radius:6px;overflow:hidden;margin:4px 0 8px;"><div style="height:100%;width:${p}%;background:${full?"linear-gradient(90deg,#f0b429,#f5cd47)":"#2f9e8f"};"></div></div>
-      <div style="font-size:12px;color:var(--sub);">${w.done?"宸茶喘鍏ワ紝杈炬垚蹇冩効 鉁?:full?"閽辨敀澶熶簡锛佸彲浠ヤ笅鍗曞暒 馃泹锔?:"杩涘害 "+p+"% 锝?杩樺樊 楼"+(w.price-sv).toFixed(0)}</div>
-      ${full&&!w.done?`<button class="btn" id="buy_${w.id}" style="margin-top:9px;background:#f0b429;">鉁?鏀掑浜嗭紝鏍囪宸茶喘涔帮紒</button>`:""}
+      <div style="font-size:12px;color:var(--sub);">${w.done?"已购入，达成心愿 ✨":full?"钱攒够了！可以下单啦 🛍️":"进度 "+p+"% ｜ 还差 ¥"+(w.price-sv).toFixed(0)}</div>
+      ${full&&!w.done?`<button class="btn" id="buy_${w.id}" style="margin-top:9px;background:#f0b429;">✅ 攒够了，标记已购买！</button>`:""}
     </div>`;
   });
   return h;
 }
 function doneN(wishes){return wishes.filter(w=>w.done).length;}
 
-// ================= 杩涘害缁熻 =================
+// ================= 进度统计 =================
 function statView(){
   // weights
   const ws=[]; for(let i=0;i<=totalDays;i++){const s=dateOf(i+1),v=load(gtk(s),null);if(v!=null)ws.push({d:s,w:v});}
@@ -2776,40 +2783,40 @@ function statView(){
   const diff=words-planned;
   const expW= START_W-(TARGET_W && (START_W-TARGET_W))*(Math.min(elapsed,totalDays)/totalDays);
   let h=`<div class="stats">
-    <div class="stat ${weightHidden?"wpriv":""}"><div class="v">${lost>0?"-"+lost.toFixed(1):"0"} 鏂?/div><div class="k">宸插噺閲嶉噺${latest?`锛堟渶鏂?{latest.w}鏂わ級`:""}</div></div>
-    <div class="stat g"><div class="v">${words} / ${TOTAL_WORDS}</div><div class="k">宸茶儗鍗曡瘝锛?{(words/25).toFixed(0)}%锛?/div></div>
-    <div class="stat ${weightHidden?"wpriv":""}"><div class="v">${TARGET_W} 鏂?/div><div class="k">鐩爣浣撻噸 3鏈?鏃?/div></div>
-    <div class="stat g"><div class="v">${diff>=0?"+"+diff:diff}</div><div class="k">鍗曡瘝${diff>=0?"棰嗗厛":"钀藉悗璁″垝锛堜釜锛?}</div></div>
+    <div class="stat ${weightHidden?"wpriv":""}"><div class="v">${lost>0?"-"+lost.toFixed(1):"0"} 斤</div><div class="k">已减重量${latest?`（最新${latest.w}斤）`:""}</div></div>
+    <div class="stat g"><div class="v">${words} / ${TOTAL_WORDS}</div><div class="k">已背单词（${(words/25).toFixed(0)}%）</div></div>
+    <div class="stat ${weightHidden?"wpriv":""}"><div class="v">${TARGET_W} 斤</div><div class="k">目标体重 3月1日</div></div>
+    <div class="stat g"><div class="v">${diff>=0?"+"+diff:diff}</div><div class="k">单词${diff>=0?"领先":"落后计划（个）"}</div></div>
   </div>`;
-  if(diff<0) h+=`<div class="alert warn">馃搲 鍗曡瘝钀藉悗 ${-diff} 涓細寤鸿鎺ヤ笅鏉ヤ竴鍛ㄦ瘡澶╁鑳?${Math.ceil(-diff/7)} 涓ˉ榻愯繘搴︼紝鍒斁寮冿紒</div>`;
-  else h+=`<div class="alert info">鉁?鍗曡瘝杩涘害姝ｅ父锛屼繚鎸佽妭濂忥紒鎸夎鍒?${words>=TOTAL_WORDS?"宸插叏閮ㄨ儗瀹?馃帀":"Day "+Math.min(totalDays,Math.ceil((words+1)/PER_DAY))+" 宸﹀彸鑳屽畬鍏ㄤ功銆?}</div>`;
-  if(latest&&expW&&(latest.w-expW)>1) h+=`<div class="alert warn ${weightHidden?"wpriv":""}">鈿栵笍 褰撳墠浣撻噸姣旂洰鏍囨洸绾块珮 ${(latest.w-expW).toFixed(1)} 鏂わ紝鏈懆楗鍐嶆敹绱?00澶у崱/澶┿€?/div>`;
+  if(diff<0) h+=`<div class="alert warn">📉 单词落后 ${-diff} 个：建议接下来一周每天多背 ${Math.ceil(-diff/7)} 个补齐进度，别放弃！</div>`;
+  else h+=`<div class="alert info">✅ 单词进度正常，保持节奏！按计划 ${words>=TOTAL_WORDS?"已全部背完 🎉":"Day "+Math.min(totalDays,Math.ceil((words+1)/PER_DAY))+" 左右背完全书。"}</div>`;
+  if(latest&&expW&&(latest.w-expW)>1) h+=`<div class="alert warn ${weightHidden?"wpriv":""}">⚖️ 当前体重比目标曲线高 ${(latest.w-expW).toFixed(1)} 斤，本周饮食再收紧100大卡/天。</div>`;
   const inPeriod=PERIODS.some(([s,e])=>{const n2=dayN(cur);return n2&&n2>=s&&n2<=e;});
-  if(inPeriod) h+=`<div class="alert info">馃尭 濮ㄥ鏈熶腑锛氳繖鍑犲ぉ浣撻噸涓婃定鎴栫汗涓濅笉鍔ㄩ兘鏄?b>姘村垎鍜屾縺绱?/b>锛屼笉鏄剛鑲弽寮癸紒濮ㄥ璧板悗涓€鍛ㄦ槸鎺夌Г榛勯噾鏈燂紝绋充綇鍒厡銆?/div>`;
-  h+=`<div class="card"><h3>馃寠 浣撻噸娉㈠姩棰勬湡 <span class="badge">鐪嬪懆鍧囷紝涓嶇湅鍗曟棩</span></h3><div class="${weightHidden?"wpriv":""}" style="font-size:13px;line-height:2;">
-      浣撻噸鏈潵灏变細姣忓ぉ娉㈠姩0.5~1鏂わ紙鍠濇按銆佸悆鍜搞€佹帓渚块兘褰卞搷锛夈€備綘鐨勬尝鍔ㄨ寰嬶細<br>
-      馃尭 <b>濮ㄥ鏈熷墠鍚庯紙姣忔湀绾?0鍙凤紝绐楀彛锛?1/17-21銆?2/19-23銆?/19-23銆?/18-22锛?/b>锛氶鏈?b>涓嶉檷鍙嶆定0.5~1.5鏂?/b>鈥斺€旀按閽犳酱鐣欙紝涓嶆槸鑳栦簡<br>
-      鈿?<b>濮ㄥ璧板悗涓€鍛?/b>锛氭按鑲挎秷閫€锛屽父鍑虹幇"绐佺劧鎺?~2鏂?鐨勬儕鍠?br>
-      馃弸锔?<b>杩愬姩鍚庡偍姘?/b>锛氭墦鐞?鏂拌繍鍔ㄥ悗鑲岃倝鍙戠値淇浼氬偍姘达紝<b>杩愬姩瀹屽弽鑰屾定1~2鏂ゅ緢甯歌</b>锛?~3澶╄嚜鐒舵秷閫€鈥斺€旀墍浠ュ埆鐢?浠婂ぉ杩愬姩浜嗘€庝箞杩橀噸浜?鏉ュ惁瀹氳嚜宸?br>
-      鈴革笍 <b>骞冲彴鏈?/b>锛氬噺鍒颁竴瀹氭暟韬綋浼氶€傚簲锛岄鏈熸洸绾块噷宸茬暀浜?涓钩鍙帮紙绾?50銆?45銆?39鏂ら檮杩戯級锛屽悇鎸佺画1~2鍛ㄣ€?b>骞冲彴鏈熶粈涔堥兘涓嶇敤鏀?/b>锛岀啲杩囧幓鑷劧绐佺牬锛涜秴杩?鍛ㄤ笉鍔ㄥ啀鏀剁揣楗100澶у崱<br>
-      馃搳 鍥句笂<b>姗欒壊绾?/b>灏辨槸棰勬湡娉㈠姩鏇茬嚎锛堝彴闃跺紡锛夈€?b>绮夎壊闃村奖</b>鏄Ж濡堟湡锛氫綘鐨勮摑鑹蹭綋閲嶇嚎鍙璺熺潃姗欑嚎涓婁笅璧帮紝灏辨槸瀹岀編鑺傚
+  if(inPeriod) h+=`<div class="alert info">🌸 姨妈期中：这几天体重上涨或纹丝不动都是<b>水分和激素</b>，不是脂肪反弹！姨妈走后一周是掉秤黄金期，稳住别慌。</div>`;
+  h+=`<div class="card"><h3>🌊 体重波动预期 <span class="badge">看周均，不看单日</span></h3><div class="${weightHidden?"wpriv":""}" style="font-size:13px;line-height:2;">
+      体重本来就会每天波动0.5~1斤（喝水、吃咸、排便都影响）。你的波动规律：<br>
+      🌸 <b>姨妈期前后（每月约20号，窗口：11/17-21、12/19-23、1/19-23、2/18-22）</b>：预期<b>不降反涨0.5~1.5斤</b>——水钠潴留，不是胖了<br>
+      ⚡ <b>姨妈走后一周</b>：水肿消退，常出现"突然掉1~2斤"的惊喜<br>
+      🏋️ <b>运动后储水</b>：打球/新运动后肌肉发炎修复会储水，<b>运动完反而涨1~2斤很常见</b>，2~3天自然消退——所以别用"今天运动了怎么还重了"来否定自己<br>
+      ⏸️ <b>平台期</b>：减到一定数身体会适应，预期曲线里已留了3个平台（约150、145、139斤附近），各持续1~2周。<b>平台期什么都不用改</b>，熬过去自然突破；超过3周不动再收紧饮食100大卡<br>
+      📊 图上<b>橙色线</b>就是预期波动曲线（台阶式）、<b>粉色阴影</b>是姨妈期：你的蓝色体重线只要跟着橙线上下走，就是完美节奏
     </div></div>`;
-  h+=`<div class="card"><h3>鈿栵笍 浣撻噸鏇茬嚎 <span class="badge">鍛ㄦ棩鏅ㄨ捣绌鸿吂绉?/span></h3><div class="${weightHidden?"wpriv":""}"><canvas id="chart" width="640" height="260"></canvas>
+  h+=`<div class="card"><h3>⚖️ 体重曲线 <span class="badge">周日晨起空腹称</span></h3><div class="${weightHidden?"wpriv":""}"><canvas id="chart" width="640" height="260"></canvas>
       <div style="display:flex;gap:8px;margin-top:9px;">
-      <input type="number" step="0.1" id="win" placeholder="杈撳叆浠婃棩浣撻噸锛堟枻锛? style="flex:1;">
-      <button class="btn" id="wsave" style="width:auto;padding:9px 18px;">淇濆瓨</button></div></div></div>`;
+      <input type="number" step="0.1" id="win" placeholder="输入今日体重（斤）" style="flex:1;">
+      <button class="btn" id="wsave" style="width:auto;padding:9px 18px;">保存</button></div></div></div>`;
   // heatmap: last 30 days ending cur
-  h+=`<div class="card"><h3>馃棑 鏈€杩?0澶╂墦鍗＄儹鍔涘浘</h3><div class="heat">`;
+  h+=`<div class="card"><h3>🗓 最近30天打卡热力图</h3><div class="heat">`;
   const base=parse(cur);
   for(let i=29;i>=0;i--){const s=fmt(new Date(base.getTime()-i*864e5));
     const ex=load(ck(s),{}),exv=(ex.band!=null||ex.baddy||Object.values(ex.meals||{}).some(m=>m&&(m.photo||m.kcal)));
     const wv=load(wk(s),false);
-    h+=`<i class="${exv&&wv?"b":exv?"ex":wv?"wd":""}" title="${s}${exv?" 路 鍑忛噸鉁?:""}${wv?" 路 鍗曡瘝鉁?:""}"></i>`;}
-  h+=`</div><div class="leg"><span><i style="background:#ffb08f"></i>鍑忛噸</span><span><i style="background:#8fd8c8"></i>鍗曡瘝</span><span><i style="background:linear-gradient(135deg,#ffb08f,#8fd8c8)"></i>鍙屾墦鍗?/span></div></div>`;
-  h+=`<div class="card"><h3>馃捑 澶囦唤涓庢仮澶?/h3>
-    <div class="hint" style="margin-top:0;">鎵€鏈夋墦鍗℃暟鎹彧瀛樺湪鏈澶囨祻瑙堝櫒閲屻€傛崲鎵嬫満鎴栨竻缂撳瓨鍓嶏紝鍏堝鍑哄浠斤紒</div>
-    <button class="btn green" id="expBtn" style="margin-top:8px;">猬囷笍 瀵煎嚭鏁版嵁锛堜笅杞藉浠芥枃浠讹級</button>
-    <label class="btn ghost" style="display:block;text-align:center;cursor:pointer;margin-top:8px;">猬嗭笍 瀵煎叆鏁版嵁锛堥€夋嫨澶囦唤鏂囦欢锛?input type="file" id="impFile" accept=".json,application/json" hidden></label></div>`;
+    h+=`<i class="${exv&&wv?"b":exv?"ex":wv?"wd":""}" title="${s}${exv?" · 减重✓":""}${wv?" · 单词✓":""}"></i>`;}
+  h+=`</div><div class="leg"><span><i style="background:#ffb08f"></i>减重</span><span><i style="background:#8fd8c8"></i>单词</span><span><i style="background:linear-gradient(135deg,#ffb08f,#8fd8c8)"></i>双打卡</span></div></div>`;
+  h+=`<div class="card"><h3>💾 备份与恢复</h3>
+    <div class="hint" style="margin-top:0;">所有打卡数据只存在本设备浏览器里。换手机或清缓存前，先导出备份！</div>
+    <button class="btn green" id="expBtn" style="margin-top:8px;">⬇️ 导出数据（下载备份文件）</button>
+    <label class="btn ghost" style="display:block;text-align:center;cursor:pointer;margin-top:8px;">⬆️ 导入数据（选择备份文件）<input type="file" id="impFile" accept=".json,application/json" hidden></label></div>`;
   return h;
 }
 
@@ -2823,18 +2830,18 @@ function drawChart(){
   const Y=w=>padT+(H-padT-padB)*(hi-w)/(hi-lo);
   ctx.strokeStyle="#e8ecf0";ctx.fillStyle="#8a97a5";ctx.font="11px sans-serif";ctx.textAlign="right";
   for(let w=Math.ceil(lo/5)*5;w<=hi;w+=5){ctx.beginPath();ctx.moveTo(padL,Y(w));ctx.lineTo(W-padR,Y(w));ctx.stroke();ctx.fillText(w,padL-6,Y(w)+4);}
-  // 濮ㄥ鏈熼槾褰卞尯
+  // 姨妈期阴影区
   ctx.fillStyle="rgba(255,122,160,.12)";
   for(const [s,e] of PERIODS){ ctx.fillRect(X(Math.max(1,s)),padT,X(Math.min(totalDays,e))-X(Math.max(1,s)),H-padT-padB); }
-  // 鐩爣鐩寸嚎
+  // 目标直线
   ctx.strokeStyle="#ffd8c2";ctx.setLineDash([5,4]);ctx.lineWidth=2;ctx.beginPath();
   ctx.moveTo(X(1),Y(START_W));ctx.lineTo(X(totalDays),Y(TARGET_W));ctx.stroke();ctx.setLineDash([]);
-  // 棰勬湡娉㈠姩鏇茬嚎锛堝惈濮ㄥ鏈熸按鑲胯捣浼忥級
+  // 预期波动曲线（含姨妈期水肿起伏）
   ctx.strokeStyle="#ff9a5c";ctx.lineWidth=1.5;ctx.beginPath();
   for(let n2=1;n2<=totalDays;n2++){const p=X(n2),q=Y(expectedW(n2));n2===1?ctx.moveTo(p,q):ctx.lineTo(p,q);}
   ctx.stroke();
-  ctx.fillStyle="#ff9a5c";ctx.textAlign="left";ctx.fillText("鐩爣鏇茬嚎",X(totalDays)-64,Y(TARGET_W)-6);
-  ctx.fillText("棰勬湡娉㈠姩锛堝惈骞冲彴鏈?杩愬姩鍌ㄦ按/濮ㄥ鏈熺矇鑹插尯锛?,padL+6,Y(START_W)-4);
+  ctx.fillStyle="#ff9a5c";ctx.textAlign="left";ctx.fillText("目标曲线",X(totalDays)-64,Y(TARGET_W)-6);
+  ctx.fillText("预期波动（含平台期/运动储水/姨妈期粉色区）",padL+6,Y(START_W)-4);
   // actual
   if(ws.length>0){ctx.strokeStyle="#2f9e8f";ctx.lineWidth=2.5;ctx.beginPath();
     ws.forEach((p,i)=>i?ctx.lineTo(X(p.n),Y(p.w)):ctx.moveTo(X(p.n),Y(p.w)));ctx.stroke();
@@ -2845,7 +2852,7 @@ function drawChart(){
 
 function renderQR(){
   const el=document.getElementById("qrbox"); if(!el||!AUDIO_URL)return;
-  const fallback=()=>{el.innerHTML='<img alt="闊抽浜岀淮鐮? src="https://api.qrserver.com/v1/create-qr-code/?size=170x170&data='+encodeURIComponent(AUDIO_URL)+'" width="170" height="170" style="border:8px solid #fff;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.1);">';};
+  const fallback=()=>{el.innerHTML='<img alt="音频二维码" src="https://api.qrserver.com/v1/create-qr-code/?size=170x170&data='+encodeURIComponent(AUDIO_URL)+'" width="170" height="170" style="border:8px solid #fff;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.1);">';};
   try{
     if(typeof qrcode!=="undefined"){
       const qr=qrcode(0,"M"); qr.addData(AUDIO_URL); qr.make();
@@ -2879,8 +2886,8 @@ function bind(){
   if(catSel) catSel.onchange=()=>{$("#todoNewCat").style.display=catSel.value==="__custom"?"block":"none";};
   const todoAdd=$("#todoAdd");
   if(todoAdd) todoAdd.onclick=()=>{
-    const txt=$("#todoText").value.trim(); if(!txt){alert("鍏堝啓涓€涓嬭鍔炵殑浜嬪摝锝?);return;}
-    let cat=$("#todoCat").value; if(cat==="__custom") cat=$("#todoNewCat").value.trim()||"猸?鍏朵粬";
+    const txt=$("#todoText").value.trim(); if(!txt){alert("先写一下要办的事哦～");return;}
+    let cat=$("#todoCat").value; if(cat==="__custom") cat=$("#todoNewCat").value.trim()||"⭐ 其他";
     const todos=load("ds_todos",[]); todos.unshift({id:Date.now(),text:txt,cat,done:false});
     save("ds_todos",todos); render(); };
   document.querySelectorAll("[data-td]").forEach(cb=>cb.onchange=()=>{
@@ -2888,7 +2895,7 @@ function bind(){
     if(t){t.done=cb.checked;save("ds_todos",todos);render();} });
   document.querySelectorAll("[data-del]").forEach(btn=>btn.onclick=()=>{
     save("ds_todos",load("ds_todos",[]).filter(x=>String(x.id)!==btn.dataset.del)); render(); });
-  // ---- 鏀掗挶椤?----
+  // ---- 攒钱页 ----
   document.querySelectorAll("[data-jump]").forEach(b=>b.onclick=()=>{cur=b.dataset.jump;render();});
   document.querySelectorAll("[data-sm]").forEach(b=>b.onclick=()=>{_saveMonth=b.dataset.sm;
     _saveYear=+_saveMonth.split("-")[0];render();});
@@ -2899,16 +2906,16 @@ function bind(){
   if(wishReset) wishReset.onclick=()=>{
     const now=Date.now();
     if(!resetArm || now-resetArm>3500){
-      resetArm=now; wishReset.textContent="鈿狅笍 鍐嶇偣涓€娆＄‘璁ゆ竻绌?;
+      resetArm=now; wishReset.textContent="⚠️ 再点一次确认清空";
       wishReset.style.background="#ffe3e3"; wishReset.style.color="#d9480f"; wishReset.style.borderColor="#ffb3b3";
       setTimeout(()=>{ if(resetArm && Date.now()-resetArm>=3500){ resetArm=0;
-        wishReset.textContent="馃Ч 娓呯┖鏀掗挶璁板綍"; wishReset.style.background="#fff"; wishReset.style.color="var(--sub)"; wishReset.style.borderColor="var(--line)"; } },3600);
+        wishReset.textContent="🧹 清空攒钱记录"; wishReset.style.background="#fff"; wishReset.style.color="var(--sub)"; wishReset.style.borderColor="var(--line)"; } },3600);
       return; }
     resetArm=0;
     const ks=[]; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i);
       if(k&&/^ds_save_\d{4}-\d{2}$/.test(k)) ks.push(k); }
     ks.forEach(k=>localStorage.removeItem(k)); localStorage.removeItem("ds_save_log");
-    alert("宸叉竻绌烘墍鏈夋敀閽辫褰曪紝蹇冩効姹犲綊闆躲€?);
+    alert("已清空所有攒钱记录，心愿池归零。");
     render(); };
   document.querySelectorAll("[data-wedit]").forEach(btn=>btn.onclick=()=>{
     editWishId=btn.dataset.wedit; render(); });
@@ -2916,7 +2923,7 @@ function bind(){
   if(ewSave) ewSave.onclick=()=>{
     const wishes=load("ds_wish",[]); const w=wishes.find(x=>String(x.id)===editWishId); if(!w)return;
     const nm=$("#ewName").value.trim(); const pr=parseFloat($("#ewPrice").value);
-    if(!nm||isNaN(pr)||pr<=0){alert("璇峰～鍐欏悕绉板拰姝ｇ‘鐨勪环鏍?);return;}
+    if(!nm||isNaN(pr)||pr<=0){alert("请填写名称和正确的价格");return;}
     w.name=nm; w.price=+pr.toFixed(2);
     editWishId=null; save("ds_wish",wishes); render(); };
   if(ewCancel) ewCancel.onclick=()=>{editWishId=null;render();};
@@ -2924,14 +2931,14 @@ function bind(){
   if(tgtEdit) tgtEdit.onclick=()=>{editTgt=true;render();};
   const tgSave=$("#tgSave"), tgCancel=$("#tgCancel");
   if(tgSave) tgSave.onclick=()=>{
-    const v=parseFloat($("#tgVal").value); if(isNaN(v)||v<=0){alert("璇疯緭鍏ユ纭殑鐩爣閲戦");return;}
+    const v=parseFloat($("#tgVal").value); if(isNaN(v)||v<=0){alert("请输入正确的目标金额");return;}
     editTgt=false; save("ds_save_target_"+saveMonth(),v); render(); };
   if(tgCancel) tgCancel.onclick=()=>{editTgt=false;render();};
   const amtEdit=$("#amtEdit");
   if(amtEdit) amtEdit.onclick=()=>{editAmt=true;render();};
   const amtSave=$("#amtSave"), amtCancel=$("#amtCancel");
   if(amtSave) amtSave.onclick=()=>{
-    const v=parseFloat($("#amtVal").value); if(isNaN(v)||v<0){alert("璇疯緭鍏ユ纭殑閲戦");return;}
+    const v=parseFloat($("#amtVal").value); if(isNaN(v)||v<0){alert("请输入正确的金额");return;}
     editAmt=false; save("ds_save_"+saveMonth(),+v.toFixed(2)); render(); };
   if(amtCancel) amtCancel.onclick=()=>{editAmt=false;render();};
   document.querySelectorAll("[data-recedit]").forEach(btn=>btn.onclick=()=>{
@@ -2941,12 +2948,12 @@ function bind(){
     const y=saveMonth(), log=load("ds_save_log",[]);
     const recs=log.map((e,i)=>({e,i})).filter(o=>o.e.ym===y);
     const t=recs[editRecIdx]; if(!t)return;
-    const v2=parseFloat($("#reVal").value); if(isNaN(v2)||v2<0){alert("璇疯緭鍏ユ纭殑閲戦");return;}
+    const v2=parseFloat($("#reVal").value); if(isNaN(v2)||v2<0){alert("请输入正确的金额");return;}
     const diff=+(v2-t.e.delta).toFixed(2);
     save("ds_save_"+y, Math.max(0, +( (load("ds_save_"+y,0)+diff).toFixed(2) )));
     t.e.delta=v2;
     save("ds_save_log",log); editRecIdx=null; render();
-    alert("宸叉敼涓?楼"+v2+"锛佸績鎰挎睜鑷姩鏇存柊瀹屾瘯銆?); };
+    alert("已改为 ¥"+v2+"！心愿池自动更新完毕。"); };
   if(reCancel) reCancel.onclick=()=>{editRecIdx=null;render();};
   const undoDel=$("#undoDel");
   if(undoDel) undoDel.onclick=()=>{
@@ -2955,7 +2962,7 @@ function bind(){
     save("ds_save_"+y, +( (load("ds_save_"+y,0)+e.delta).toFixed(2) ));
     const log=load("ds_save_log",[]); log.push({ym:y,delta:e.delta,alloc:{},d:e.d||stamp()}); save("ds_save_log",log);
     lastDel=null; render();
-    alert("宸叉挙閿€鍒犻櫎锛屄?+e.delta+" 鎭㈠锛屽績鎰挎睜鑷姩鏇存柊銆?); };
+    alert("已撤销删除，¥"+e.delta+" 恢复，心愿池自动更新。"); };
   document.querySelectorAll("[data-recdel]").forEach(btn=>btn.onclick=()=>{
     const y=saveMonth(); const log=load("ds_save_log",[]);
     const recs=log.map((e,i)=>({e,i})).filter(o=>o.e.ym===y);
@@ -2966,16 +2973,16 @@ function bind(){
   const saveRec=$("#saveRec");
   if(saveRec) saveRec.onclick=()=>{
     const y=saveMonth(), wishes=load("ds_wish",[]);
-    const v=parseFloat($("#saveAmt").value); if(isNaN(v)||v<=0){alert("杈撳叆鏈鏀掔殑閲戦");return;}
+    const v=parseFloat($("#saveAmt").value); if(isNaN(v)||v<=0){alert("输入本次攒的金额");return;}
     save("ds_save_"+y, +( (load("ds_save_"+y,0)+v).toFixed(2) ));
     $("#saveAmt").value="";
     const log=load("ds_save_log",[]); log.push({ym:y,delta:v,alloc:{},d:stamp()}); save("ds_save_log",log);
-    alert("宸茶涓€绗?楼"+v+"锛佸績鎰挎睜宸茶嚜鍔ㄦ寜姣斾緥鍒嗛厤銆?);
+    alert("已记一笔 ¥"+v+"！心愿池已自动按比例分配。");
     render(); };
   const wishAdd=$("#wishAdd");
   if(wishAdd) wishAdd.onclick=()=>{
     const name=$("#wishName").value.trim(), price=parseFloat($("#wishPrice").value);
-    if(!name||!price||price<=0){alert("璇峰～鍐欏績鎰垮悕绉板拰浠锋牸");return;}
+    if(!name||!price||price<=0){alert("请填写心愿名称和价格");return;}
     const wishes=load("ds_wish",[]); wishes.push({id:Date.now(),name,price,saved:0,done:false});
     save("ds_wish",wishes); render(); };
   const wishTpl=$("#wishTpl");
@@ -2983,14 +2990,14 @@ function bind(){
     const wishes=load("ds_wish",[]); let added=0;
     WISH_TPL.forEach(([n,p])=>{ if(!wishes.some(w=>w.name===n)){ wishes.push({id:Date.now()+Math.random(),name:n,price:p,saved:0,done:false}); added++; } });
     save("ds_wish",wishes);
-    alert(added?("宸叉仮澶?"+added+" 涓ず渚嬪績鎰匡紝鍙偣 鉁忥笍 鏀逛环鏍兼垨 鉁?鍒犻櫎涓嶉渶瑕佺殑銆?):"绀轰緥蹇冩効閮藉凡瀛樺湪锛屾棤闇€鎭㈠銆?);
+    alert(added?("已恢复 "+added+" 个示例心愿，可点 ✏️ 改价格或 ✕ 删除不需要的。"):"示例心愿都已存在，无需恢复。");
     render(); };
   document.querySelectorAll("[data-wdel]").forEach(btn=>btn.onclick=()=>{
     const now=Date.now();
     if(delArm!==btn.dataset.wdel || now-delArmTs>3500){
       delArm=btn.dataset.wdel; delArmTs=now;
-      btn.textContent="鈿狅笍"; btn.style.color="#d9480f";
-      setTimeout(()=>{ btn.textContent="鉁?; btn.style.color="#c3ccd4"; },3600);
+      btn.textContent="⚠️"; btn.style.color="#d9480f";
+      setTimeout(()=>{ btn.textContent="✕"; btn.style.color="#c3ccd4"; },3600);
       return; }
     save("ds_wish",load("ds_wish",[]).filter(x=>String(x.id)!==btn.dataset.wdel)); render(); });
   document.querySelectorAll("[id^=buy_]").forEach(btn=>btn.onclick=()=>{
@@ -3000,7 +3007,7 @@ function bind(){
     const els=[...document.querySelectorAll("[data-apct]")];
     const sum=els.length?els.reduce((s,e2)=>s+(parseFloat(e2.value)||0),0):0;
     const el=$("#allocSum"); if(!el)return;
-    el.textContent = sum===0?"褰撳墠锛氭湭璁剧疆姣斾緥锛屽皢骞冲潎鍒嗛厤":sum===100?"鍚堣 100% 鉁?:`鍚堣 ${sum}%锛岃涓€绗旀椂鎸夋瘮渚嬫姌绠梎;
+    el.textContent = sum===0?"当前：未设置比例，将平均分配":sum===100?"合计 100% ✅":`合计 ${sum}%，记一笔时按比例折算`;
     el.style.color = sum===100?"var(--ok)":sum===0?"var(--sub)":"#c2620a"; };
   document.querySelectorAll("[data-arole]").forEach(sel=>sel.onchange=()=>{
     const y2=saveMonth(); const id=sel.dataset.arole;
@@ -3019,9 +3026,9 @@ function bind(){
     render(); });
   const wsave=$("#wsave");
   if(wsave) wsave.onclick=()=>{const v=parseFloat($("#win").value);
-    if(!v||v<60||v>300){alert("璇疯緭鍏ュ悎鐞嗙殑浣撻噸锛堟枻锛?);return;}
+    if(!v||v<60||v>300){alert("请输入合理的体重（斤）");return;}
     save(gtk(cur),v);render();};
-  // ---- 澶囦唤涓庢仮澶?----
+  // ---- 备份与恢复 ----
   const wToggle=$("#wToggle");
   if(wToggle) wToggle.onclick=()=>{ weightHidden=!weightHidden; save("ds_whidden",weightHidden); render(); };
   const expBtn=$("#expBtn");
@@ -3031,7 +3038,7 @@ function bind(){
       if(k&&k.indexOf("ds_")===0) out[k]=localStorage.getItem(k); }
     const blob=new Blob([JSON.stringify(out)],{type:"application/json"});
     const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
-    a.download="鎵撳崱鍙板浠絖"+fmt(new Date())+".json"; document.body.appendChild(a); a.click(); a.remove();
+    a.download="打卡台备份_"+fmt(new Date())+".json"; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(()=>URL.revokeObjectURL(a.href),3000); };
   const impFile=$("#impFile");
   if(impFile) impFile.onchange=e=>{
@@ -3039,8 +3046,8 @@ function bind(){
     const r=new FileReader();
     r.onload=ev=>{ try{ const obj=JSON.parse(ev.target.result); let n=0;
         for(const k in obj){ if(k.indexOf("ds_")===0){ localStorage.setItem(k,obj[k]); n++; } }
-        alert("宸插鍏?"+n+" 椤规暟鎹?鉁?); render(); }
-      catch(err){ alert("鏂囦欢鏍煎紡涓嶅锛岃閫夋嫨瀵煎嚭鐨勫浠絡son鏂囦欢"); } };
+        alert("已导入 "+n+" 项数据 ✓"); render(); }
+      catch(err){ alert("文件格式不对，请选择导出的备份json文件"); } };
     r.readAsText(f); };
 }
 
@@ -3048,7 +3055,7 @@ render();
 if("serviceWorker" in navigator && location.protocol.indexOf("http")===0){
   navigator.serviceWorker.register("./sw.js").catch(()=>{});
 }
-(async function preloadData(){ // 鑷姩棰勮浇澶囦唤锛氬彧濉┖鐧借澶?鍙栧悇鏈堟渶澶у€硷紝缁濅笉瑕嗙洊宸叉湁鏁版嵁
+(async function preloadData(){ // 自动预载备份：只填空白设备/取各月最大值，绝不覆盖已有数据
   if(location.protocol.indexOf("http")!==0) return;
   try{
     const res=await fetch("./preload-backup.json",{cache:"no-store"}); if(!res.ok)return;
@@ -3064,9 +3071,8 @@ if("serviceWorker" in navigator && location.protocol.indexOf("http")===0){
 })();
 </script>
 <div style="text-align:center;font-size:11px;color:var(--sub);padding:10px 16px 0;line-height:1.8;">
-  馃摫 鎵嬫満浣跨敤锛氭妸杩欎釜鏂囦欢閫氳繃寰俊銆屾枃浠朵紶杈撳姪鎵嬨€嶅彂鍒版墜鏈猴紝鐢ㄦ祻瑙堝櫒鎵撳紑鍗冲彲鎵撳崱<br>
-  鎵嬫満鍜岀數鑴戠殑鏁版嵁鍚勮嚜鐙珛淇濆瓨锛屽缓璁浐瀹氫竴鍙拌澶囨墦鍗★紝鍙︿竴鍙板彧鏌ョ湅
+  📱 手机使用：把这个文件通过微信「文件传输助手」发到手机，用浏览器打开即可打卡<br>
+  手机和电脑的数据各自独立保存，建议固定一台设备打卡，另一台只查看
 </div>
 </body>
 </html>
-
